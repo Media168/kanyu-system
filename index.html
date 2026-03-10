@@ -5,137 +5,110 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-CYRZVWZQBF'); // 👈 請在此處替換您的 GA4 ID
+      gtag('js', new Date()); gtag('config', 'G-CYRZVWZQBF');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>羅導 - 易經姓名學專業排盤系統</title>
+    <title>羅導 - 易經姓名學專業排盤</title>
     <style>
-        :root { --primary-color: #8b0000; --bg-color: #f4f4f7; }
-        body { font-family: "Microsoft JhengHei", sans-serif; background: var(--bg-color); padding: 20px; color: #333; }
-        .container { max-width: 650px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        h2 { text-align: center; color: var(--primary-color); letter-spacing: 2px; }
-        .input-box { display: flex; gap: 10px; margin: 25px 0; }
-        input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
-        button { padding: 12px 25px; background: var(--primary-color); color: white; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; font-weight: bold; }
-        button:hover { background: #a00000; transform: translateY(-2px); }
-        
-        .result-section { display: none; animation: fadeIn 0.5s ease-in; }
-        .card { background: #fafafa; border: 1px solid #eee; padding: 20px; border-radius: 10px; margin-top: 20px; }
-        .stroke-detail { border-left: 5px solid var(--primary-color); }
-        .iching-detail { border-left: 5px solid #2c3e50; background: #fffdf5; }
-        
-        .highlight { color: var(--primary-color); font-weight: bold; font-size: 1.2em; }
-        .line-text { color: #555; font-style: italic; margin-top: 10px; padding: 10px; background: #f0f0f0; border-radius: 5px; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        :root { --main: #8b0000; --bg: #f8f9fa; }
+        body { font-family: "Microsoft JhengHei", sans-serif; background: var(--bg); padding: 20px; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: var(--main); }
+        .input-group { display: flex; gap: 10px; margin: 20px 0; }
+        input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; }
+        button { padding: 12px 20px; background: var(--main); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .result-card { display: none; margin-top: 20px; border-top: 2px solid var(--main); padding-top: 20px; line-height: 1.8; }
+        .highlight { color: var(--main); font-weight: bold; font-size: 1.1em; }
+        .line-box { background: #fff9f9; padding: 15px; border-radius: 8px; border: 1px solid #ffeded; margin-top: 15px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h2>易經姓名學排盤系統</h2>
-    
-    <div class="input-box">
-        <input type="text" id="nameInput" placeholder="輸入姓名 (例：羅鴻陞)" maxlength="4">
-        <button onclick="calculateAll()">起卦分析</button>
+    <div class="input-group">
+        <input type="text" id="nameInput" placeholder="請輸入姓名 (2~4字)" maxlength="4">
+        <button onclick="analyze()">起卦分析</button>
     </div>
 
-    <div id="strokeResult" class="card stroke-detail result-section"></div>
-
-    <div id="ichingResult" class="card iching-detail result-section"></div>
+    <div id="result" class="result-card">
+        <div id="strokeInfo"></div>
+        <hr>
+        <div id="ichingInfo"></div>
+    </div>
 </div>
 
 <script>
     let kangxiDict = {};
     let ichingData = [];
 
-    // 初始化：載入資料庫
+    // 初始化載入
     async function init() {
         try {
-            const [kRes, iRes] = await Promise.all([
-                fetch('kangxi_dictionary.json'),
-                fetch('iching_data.json')
-            ]);
-            kangxiDict = await kRes.json();
-            ichingData = await iRes.json();
-            console.log("系統就緒：已載入康熙字典與易經資料庫");
-        } catch (e) {
-            console.error("初始化失敗", e);
-        }
+            const [k, i] = await Promise.all([fetch('kangxi_dictionary.json'), fetch('iching_data.json')]);
+            kangxiDict = await k.json();
+            ichingData = await i.json();
+        } catch (e) { alert("資料庫載入失敗，請確認檔案路徑。"); }
     }
     init();
 
-    function calculateAll() {
+    function analyze() {
         const name = document.getElementById('nameInput').value.trim();
-        const strokeDiv = document.getElementById('strokeResult');
-        const ichingDiv = document.getElementById('ichingResult');
+        if (name.length < 2 || name.length > 4) return alert("請輸入 2 到 4 字姓名");
 
-        if (name.length < 2 || name.length > 4) {
-            alert("請輸入 2 到 4 字的姓名");
-            return;
+        // 1. 取得筆畫
+        let strokes = [];
+        for (let char of name) {
+            let s = kangxiDict[char];
+            if (!s) return alert(`字庫未收錄：${char}`);
+            strokes.push(s);
         }
 
-        // GA4 事件追蹤：記錄使用者起卦
-        if (typeof gtag === 'function') {
-            gtag('event', 'divination_click', { 'user_name_length': name.length });
+        // 2. 姓名學取卦規則 (梅花易數法)
+        let upTotal = 0, downTotal = 0;
+        if (name.length === 2) { // 單姓單名：上(姓) / 下(名)
+            upTotal = strokes[0]; downTotal = strokes[1];
+        } else if (name.length === 3) { // 單姓雙名：上(姓) / 下(名+名)
+            upTotal = strokes[0]; downTotal = strokes[1] + strokes[2];
+        } else if (name.length === 4) { // 複姓雙名：上(姓+姓) / 下(名+名)
+            upTotal = strokes[0] + strokes[1]; downTotal = strokes[2] + strokes[3];
         }
 
-        let totalStrokes = 0;
-        let upStrokes = 0;
-        let downStrokes = 0;
-        let detailHtml = "";
-        let missing = [];
+        const sumTotal = strokes.reduce((a, b) => a + b, 0);
+        
+        // 3. 計算餘數 (8為坤)
+        const getGuaName = (n) => ["", "乾", "兌", "離", "震", "巽", "坎", "艮", "坤"][(n % 8 === 0) ? 8 : n % 8];
+        const upName = getGuaName(upTotal);
+        const downName = getGuaName(downTotal);
+        const movingYao = (sumTotal % 6 === 0) ? 6 : sumTotal % 6;
 
-        // 核心邏輯：計算筆畫
-        for (let i = 0; i < name.length; i++) {
-            const char = name[i];
-            const s = kangxiDict[char];
-            if (!s) { missing.push(char); continue; }
-            
-            detailHtml += `${char}(<span class="highlight">${s}</span>) `;
-            totalStrokes += s;
-            if (i === 0) upStrokes = s; // 第一字為姓 (上卦基礎)
-            else downStrokes += s;      // 其餘字為名 (下卦基礎)
+        // 4. 精確匹配 JSON 中的卦象 (使用 trigrams 屬性)
+        const targetGua = ichingData.find(g => g.trigrams.upper === upName && g.trigrams.lower === downName);
+
+        // 5. 顯示結果
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('strokeInfo').innerHTML = `
+            <strong>筆畫：</strong>${name.split('').map((c,i)=>`${c}(${strokes[i]})`).join(' + ')} = <span class="highlight">${sumTotal}</span> 劃<br>
+            <strong>結構：</strong>上卦基礎(${upTotal}) / 下卦基礎(${downTotal})`;
+
+        if (targetGua) {
+            const yaoObj = targetGua.lines.find(l => l.position === movingYao) || targetGua.lines[movingYao-1];
+            document.getElementById('ichingInfo').innerHTML = `
+                <div style="font-size:1.2em; font-weight:bold; color:#8b0000;">本卦：${targetGua.full_name} (${targetGua.name})</div>
+                <div><strong>變爻：</strong>第 ${movingYao} 爻變</div>
+                <div class="line-box">
+                    <strong>【第 ${movingYao} 爻辭】</strong><br>
+                    ${yaoObj.text}<br>
+                    <small style="color:#666;">解析：${yaoObj.modern}</small>
+                </div>
+                <div style="margin-top:10px;"><strong>【大象傳】</strong><br>${targetGua.judgment_modern}</div>
+            `;
         }
 
-        if (missing.length > 0) {
-            alert(`字庫尚未收錄：${missing.join(',')}`);
-            return;
-        }
-
-        // 易經算法：上卦、下卦、動爻
-        const getGua = (n) => (n % 8 === 0) ? 8 : n % 8;
-        const upGua = getGua(upStrokes);
-        const downGua = getGua(downStrokes);
-        const movingYao = (totalStrokes % 6 === 0) ? 6 : totalStrokes % 6;
-
-        // 從 64 卦資料庫中搜尋對應卦 (假設資料中有 index 或 name)
-        // 這裡採用您的 iching_data.json 結構進行串接
-        const guaNames = ["", "乾", "兌", "離", "震", "巽", "坎", "艮", "坤"];
-        const targetGuaName = guaNames[upGua] + guaNames[downGua];
-        const finalGua = ichingData.find(g => g.name.includes(targetGuaName)) || ichingData[0];
-
-        // 渲染結果
-        strokeDiv.style.display = 'block';
-        strokeDiv.innerHTML = `
-            <strong>康熙筆畫解析：</strong><br>${detailHtml}<br>
-            <strong>姓名總格：</strong> <span class="highlight">${totalStrokes}</span> 劃
-        `;
-
-        ichingDiv.style.display = 'block';
-        // 串接 384 爻：這裡假設您的 json 內有 lines 陣列存儲 6 爻辭
-        const yaoText = (finalGua.lines && finalGua.lines[movingYao - 1]) 
-                        ? finalGua.lines[movingYao - 1] 
-                        : "請參閱 384 爻辭全文。";
-
-        ichingDiv.innerHTML = `
-            <div style="font-size: 1.3em; font-weight: bold; margin-bottom: 10px;">本卦：${finalGua.name}</div>
-            <strong>動爻：</strong> 第 ${movingYao} 爻變<br>
-            <div class="line-text"><strong>爻辭解析：</strong><br>${yaoText}</div>
-            <p style="margin-top: 10px;"><strong>總體斷語：</strong> ${finalGua.interpretation || '吉凶自有定數。'}</p>
-        `;
+        // GA4 事件
+        if (typeof gtag === 'function') gtag('event', 'divination', { 'name': name, 'total': sumTotal });
     }
 </script>
 </body>
