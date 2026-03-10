@@ -16,7 +16,6 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
     <style>
-        /* 融合原有強大介面的 CSS */
         :root { --primary: #8b0000; --bg: #f5f5f7; --card-bg: #ffffff; --text: #333333; }
         body { font-family: "Microsoft JhengHei", sans-serif; background-color: var(--bg); padding: 15px; color: var(--text); line-height: 1.6; }
         .container { max-width: 650px; margin: 0 auto; }
@@ -30,7 +29,6 @@
         .btn-calc { padding: 12px 25px; background-color: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.2s; }
         .btn-calc:hover { opacity: 0.9; }
 
-        /* 圖卡輸出區塊 (保留原本的精美排版) */
         #captureArea { display: none; background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border: 1px solid #eaeaea; }
         .card-head { background: var(--primary); color: white; padding: 15px 20px; text-align: center; font-size: 1.2em; font-weight: bold; letter-spacing: 2px; }
         .card-body { padding: 25px; }
@@ -40,26 +38,22 @@
         .section-label { font-size: 1.1em; font-weight: bold; color: var(--primary); margin: 20px 0 10px 0; display: flex; align-items: center; gap: 8px; }
         .section-label::before { content: ""; display: block; width: 4px; height: 18px; background: var(--primary); border-radius: 2px; }
 
-        /* 三才五格與五行網格 */
         .grid-5 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; background: #fafafa; padding: 15px; border-radius: 8px; border: 1px solid #eee; }
         .grid-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: white; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         .grid-item.full { grid-column: span 2; justify-content: center; gap: 20px; background: #fff4f4; border: 1px solid #ffdbdb; }
         .val-num { font-weight: bold; color: var(--primary); font-size: 1.2em; }
         .val-wx { font-size: 0.9em; padding: 2px 8px; border-radius: 4px; color: white; font-weight: bold; }
         
-        /* 五行顏色標籤 */
         .wx-wood { background-color: #4CAF50; }
         .wx-fire { background-color: #F44336; }
         .wx-earth { background-color: #FF9800; }
         .wx-metal { background-color: #9E9E9E; }
         .wx-water { background-color: #2196F3; }
 
-        /* 生剋吉凶解析 */
         .wuxing-analysis { background: #f0f4f8; padding: 15px; border-radius: 8px; margin-top: 10px; font-size: 0.95em; border-left: 4px solid #607d8b; }
         .wx-row { margin-bottom: 5px; }
         .wx-row strong { color: #2c3e50; }
 
-        /* 易經卦象 */
         .iching-box { border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; margin-top: 10px; }
         .iching-title { background: #f9f9f9; padding: 12px 15px; font-weight: bold; font-size: 1.1em; color: var(--primary); border-bottom: 1px solid #e0e0e0; }
         .iching-content { padding: 15px; font-size: 0.95em; }
@@ -67,10 +61,13 @@
         
         .card-foot { text-align: center; padding: 12px; font-size: 0.8em; color: #999; border-top: 1px solid #f0f0f0; background: #fafafa; }
 
-        /* 動作按鈕區 */
+        /* 更新後的動作按鈕區 */
         .action-area { display: none; flex-direction: column; align-items: center; gap: 15px; margin-top: 25px; }
-        .btn-share { padding: 14px 30px; background-color: #06C755; color: white; border: none; border-radius: 50px; cursor: pointer; font-size: 16px; font-weight: bold; width: 100%; max-width: 300px; text-align: center; text-decoration: none; box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3); }
-        .btn-dl { color: var(--primary); text-decoration: underline; font-size: 0.9em; cursor: pointer; }
+        .btn-container { display: flex; gap: 10px; width: 100%; max-width: 400px; }
+        .btn-action { flex: 1; padding: 12px; border: none; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; text-align: center; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; gap: 6px; transition: 0.2s; }
+        .btn-save { background-color: #3b82f6; color: white; }
+        .btn-share { background-color: #10b981; color: white; }
+        .btn-action:active { transform: translateY(2px); }
 
         @media print { .no-print { display: none; } }
     </style>
@@ -78,185 +75,5 @@
 <body>
 
 <script>
-    (function(){if(/Line/i.test(navigator.userAgent)){if(/Android/i.test(navigator.userAgent)){window.location.href=`intent://${window.location.href.replace(/^https?:\/\//,'')}#Intent;scheme=https;package=com.android.chrome;end`;}else{const d=document.createElement('div');d.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);color:white;z-index:9999;display:flex;justify-content:center;align-items:center;padding:30px;text-align:center;font-size:1.1em;';d.innerHTML='為了正常產生與保存圖卡<br><br>請點擊右上角 <span style="color:#ff4d4f;font-weight:bold;font-size:1.2em;">...</span> 選單<br>選擇「在預設瀏覽器中開啟」';document.body.appendChild(d);}}})();
-</script>
-
-<div class="container no-print">
-    <div class="header-title">靈數象限</div>
-    <div class="header-sub">姓名脈絡核心解析系統</div>
-
-    <div class="input-section">
-        <div class="input-group">
-            <input type="text" id="nameInput" placeholder="請輸入姓名 (2~4字，如：羅鴻陞)" maxlength="4">
-            <button class="btn-calc" onclick="processCore()">執行核心排盤</button>
-        </div>
-    </div>
-</div>
-
-<div class="container" style="padding: 0;">
-    <div id="captureArea">
-        <div class="card-head">靈數象限 ‧ 全息排盤圖卡</div>
-        <div class="card-body">
-            <div id="outName" class="name-display"></div>
-            
-            <div class="section-label">三才五格與五行屬性</div>
-            <div class="grid-5">
-                <div class="grid-item"><span>天格</span> <span id="outTian" class="val-num"></span> <span id="wxTian"></span></div>
-                <div class="grid-item"><span>人格</span> <span id="outRen" class="val-num"></span> <span id="wxRen"></span></div>
-                <div class="grid-item"><span>地格</span> <span id="outDi" class="val-num"></span> <span id="wxDi"></span></div>
-                <div class="grid-item"><span>外格</span> <span id="outWai" class="val-num"></span> <span id="wxWai"></span></div>
-                <div class="grid-item full"><span>總格 (一生命運)</span> <span id="outZong" class="val-num"></span> <span id="wxZong"></span></div>
-            </div>
-
-            <div class="section-label">五行生剋吉凶推演</div>
-            <div class="wuxing-analysis" id="wuxingRelation"></div>
-
-            <div class="section-label">易經 64 卦與動爻推演</div>
-            <div class="iching-box">
-                <div class="iching-title" id="ichingTitle"></div>
-                <div class="iching-content" id="ichingContent"></div>
-            </div>
-        </div>
-        <div class="card-foot">系統研發：羅導 ‧ 靈數象限數據中心</div>
-    </div>
-
-    <div id="actionArea" class="action-area no-print">
-        <img id="previewImage" style="width:100%; border-radius:12px; box-shadow: 0 5px 20px rgba(0,0,0,0.15);">
-        <div style="color:#666; font-size:0.9em; margin-bottom: 5px;">👆 長按上方圖卡即可儲存至手機</div>
-        <button class="btn-share" onclick="shareLineAction()">分享圖卡至 LINE</button>
-        <a id="dlLink" class="btn-dl" href="#" download="靈數象限_排盤結果.png">或點此下載原始圖片</a>
-    </div>
-</div>
-
-<script>
-    // --- 核心資料載入 ---
-    let kangxi = {}, ichingDict = [];
-    async function loadCoreData() {
-        try {
-            const [kRes, iRes] = await Promise.all([fetch('kangxi_dictionary.json'), fetch('iching_data.json')]);
-            kangxi = await kRes.json(); ichingDict = await iRes.json();
-        } catch(e) { console.error("資料庫讀取失敗"); }
-    }
-    loadCoreData();
-
-    // --- 五行判斷邏輯 ---
-    function getWuxing(num) {
-        const tail = num % 10;
-        if (tail === 1 || tail === 2) return { name: '木', cls: 'wx-wood' };
-        if (tail === 3 || tail === 4) return { name: '火', cls: 'wx-fire' };
-        if (tail === 5 || tail === 6) return { name: '土', cls: 'wx-earth' };
-        if (tail === 7 || tail === 8) return { name: '金', cls: 'wx-metal' };
-        return { name: '水', cls: 'wx-water' };
-    }
-
-    // --- 五行生剋邏輯 ---
-    function getRelation(a, b) {
-        const relations = {
-            '木': { '木': '比和 (吉)', '火': '相生 (大吉)', '土': '相剋 (凶)', '金': '被剋 (大凶)', '水': '被生 (吉)' },
-            '火': { '木': '被生 (吉)', '火': '比和 (吉)', '土': '相生 (大吉)', '金': '相剋 (凶)', '水': '被剋 (大凶)' },
-            '土': { '木': '被剋 (大凶)', '火': '被生 (吉)', '土': '比和 (吉)', '金': '相生 (大吉)', '水': '相剋 (凶)' },
-            '金': { '木': '相剋 (凶)', '火': '被剋 (大凶)', '土': '被生 (吉)', '金': '比和 (吉)', '水': '相生 (大吉)' },
-            '水': { '木': '相生 (大吉)', '火': '相剋 (凶)', '土': '被剋 (大凶)', '金': '被生 (吉)', '水': '比和 (吉)' }
-        };
-        return relations[a][b];
-    }
-
-    // --- 核心處理程序 ---
-    function processCore() {
-        const name = document.getElementById('nameInput').value.trim();
-        if (name.length < 2 || name.length > 4) return alert("請輸入 2 到 4 字的姓名");
-
-        // 1. 中文轉康熙筆畫
-        let strokes = [];
-        let strokeDetail = "";
-        for (let char of name) {
-            let s = kangxi[char];
-            if (!s) return alert(`系統字典尚未收錄：${char}`);
-            strokes.push(s);
-            strokeDetail += `${char}(${s}) `;
-        }
-
-        // 2. 計算三才五格
-        let s1=0, s2=0, n1=0, n2=0;
-        if (name.length === 2) { s1=strokes[0]; n1=strokes[1]; }
-        else if (name.length === 3) { s1=strokes[0]; n1=strokes[1]; n2=strokes[2]; }
-        else if (name.length === 4) { s1=strokes[0]; s2=strokes[1]; n1=strokes[2]; n2=strokes[3]; }
-
-        const tian = s1 + (s2 || 1);
-        const ren = (s2 || s1) + n1;
-        const di = n1 + (n2 || 1);
-        const zong = s1 + s2 + n1 + n2;
-        const wai = (zong - ren) + (s2 ? 0 : 1);
-
-        // 3. 填寫介面 (姓名與五格)
-        document.getElementById('outName').innerHTML = `${name} <span style="font-size:0.6em;color:#666;font-weight:normal;">[${strokeDetail.trim()}]</span>`;
-        
-        const updateGrid = (id, val) => {
-            const wx = getWuxing(val);
-            document.getElementById(`out${id}`).innerText = val;
-            document.getElementById(`wx${id}`).className = `val-wx ${wx.cls}`;
-            document.getElementById(`wx${id}`).innerText = wx.name;
-            return wx.name;
-        };
-
-        const wxT = updateGrid('Tian', tian);
-        const wxR = updateGrid('Ren', ren);
-        const wxD = updateGrid('Di', di);
-        const wxW = updateGrid('Wai', wai);
-        const wxZ = updateGrid('Zong', zong);
-
-        // 4. 填寫五行生剋推演
-        document.getElementById('wuxingRelation').innerHTML = `
-            <div class="wx-row"><strong>天格(${wxT}) 對 人格(${wxR})：</strong> 長輩/父母關係 ➔ <span style="color:var(--primary)">${getRelation(wxT, wxR)}</span></div>
-            <div class="wx-row"><strong>人格(${wxR}) 對 地格(${wxD})：</strong> 晚輩/家庭關係 ➔ <span style="color:var(--primary)">${getRelation(wxR, wxD)}</span></div>
-            <div class="wx-row"><strong>人格(${wxR}) 對 外格(${wxW})：</strong> 社會/人際關係 ➔ <span style="color:var(--primary)">${getRelation(wxR, wxW)}</span></div>
-        `;
-
-        // 5. 易經取卦與 384 爻
-        const upNum = (name.length === 4) ? s1+s2 : s1;
-        const downNum = zong - upNum;
-        const getGua = (n) => ["", "乾", "兌", "離", "震", "巽", "坎", "艮", "坤"][(n%8==0)?8:n%8];
-        const movYao = (zong%6==0)?6:zong%6;
-        
-        const targetGua = ichingDict.find(g => g.trigrams.upper === getGua(upNum) && g.trigrams.lower === getGua(downNum));
-        
-        if (targetGua) {
-            const yao = targetGua.lines[movYao-1];
-            document.getElementById('ichingTitle').innerText = `本卦：${targetGua.full_name} (${targetGua.trigrams.upper}上${targetGua.trigrams.lower}下) ‧ 第 ${movYao} 爻動`;
-            document.getElementById('ichingContent').innerHTML = `
-                <div style="margin-bottom: 10px;"><strong>【大象斷語】</strong> ${targetGua.judgment_modern}</div>
-                <div class="yao-box">
-                    <strong>【第 ${movYao} 爻辭】</strong> ${yao.text}<br>
-                    <span style="color:#555; font-size:0.95em;"><strong>白話解：</strong>${yao.modern}</span>
-                </div>
-            `;
-        }
-
-        // 6. 啟動截圖程序
-        const captureNode = document.getElementById('captureArea');
-        captureNode.style.display = 'block';
-        
-        setTimeout(() => {
-            html2canvas(captureNode, { scale: 2, useCORS: true }).then(canvas => {
-                const imgData = canvas.toDataURL("image/png");
-                document.getElementById('previewImage').src = imgData;
-                document.getElementById('dlLink').href = imgData;
-                
-                captureNode.style.display = 'none';
-                document.getElementById('actionArea').style.display = 'flex';
-                
-                // 觸發 GA4
-                gtag('event', 'create_divination_card', { 'name_length': name.length });
-            });
-        }, 300); // 確保字體渲染完成
-    }
-
-    // 7. 分享功能
-    function shareLineAction() {
-        const url = window.location.href;
-        const text = "我剛在【靈數象限】完成了精準的康熙姓名脈絡解析與排盤，快來測測你的全息卦象！";
-        window.location.href = `https://line.me/R/msg/text/?${encodeURIComponent(text)}%0D%0A${encodeURIComponent(url)}`;
-    }
-</script>
-</body>
-</html>
+    // LINE 脫出強制使用瀏覽器開啟
+    (function(){if(/Line
