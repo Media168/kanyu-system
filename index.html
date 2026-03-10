@@ -15,7 +15,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-CYRZVWZQBF');
   </script>
 
@@ -43,11 +42,22 @@
     .moving-line-title { color: #c0392b; font-size: 1.1em; margin-bottom: 8px; display: block; }
     
     /* 匯出圖檔的專屬美化區域 */
-    #exportWrapper { background-color: #f4f4f9; padding: 10px; border-radius: 8px; }
+    #exportWrapper { background-color: #f4f4f9; padding: 15px; border-radius: 8px; }
     
     /* 免責聲明樣式 */
     .disclaimer { font-size: 0.85em; color: #7f8c8d; text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px dashed #bdc3c7; }
     #sysStatus { font-size: 0.9em; color: #e67e22; margin-left: 10px; }
+
+    /* 彈出視窗 (Modal) 樣式 - 手機長按專用 */
+    #imageModal {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+      background: rgba(0,0,0,0.85); z-index: 9999; justify-content: center; 
+      align-items: center; flex-direction: column; overflow-y: auto; padding: 20px; box-sizing: border-box;
+    }
+    .modal-content { background: #fff; padding: 15px; border-radius: 8px; max-width: 100%; text-align: center; }
+    .modal-hint { color: #e74c3c; font-weight: bold; margin-bottom: 15px; font-size: 1.1em; }
+    #resultImage { max-width: 100%; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    .close-btn { margin-top: 20px; background-color: #95a5a6; color: white; padding: 12px 30px; border-radius: 20px; font-size: 16px; border: none; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -62,15 +72,15 @@
     <div class="btn-group">
       <button class="primary" id="runBtn" onclick="runAnalysis()" disabled>系統載入中...</button>
       <span id="sysStatus">正在讀取外部資料庫...</span>
-      <button class="success" id="saveBtn" onclick="saveResultAsImage()">📥 儲存結果 (圖檔)</button>
+      <button class="success" id="saveBtn" onclick="generateAndShowImage()">📥 儲存結果 (圖檔)</button>
     </div>
   </div>
 
   <div id="exportWrapper" style="display: none;">
     <div id="outputArea">
-      <div class="card"><h3>一、三才五格分析</h3><div class="grid-container" id="gridOutput"></div></div>
-      <div class="card"><h3>二、五行生剋吉凶</h3><div id="sancaiOutput"></div></div>
-      <div class="card"><h3>三、易經卦象推演</h3><div class="grid-container" id="hexagramOutput"></div></div>
+      <div class="card" style="margin-bottom:15px;"><h3>一、三才五格分析</h3><div class="grid-container" id="gridOutput"></div></div>
+      <div class="card" style="margin-bottom:15px;"><h3>二、五行生剋吉凶</h3><div id="sancaiOutput"></div></div>
+      <div class="card" style="margin-bottom:15px;"><h3>三、易經卦象推演</h3><div class="grid-container" id="hexagramOutput"></div></div>
       
       <div class="disclaimer">
         免責聲明：本系統解析為學術參考之磁場對應關係，僅供參考。<br>
@@ -79,11 +89,18 @@
     </div>
   </div>
 
+  <div id="imageModal">
+    <div class="modal-content">
+      <div class="modal-hint">👆 請「長按」下方圖片儲存至手機 👆</div>
+      <img id="resultImage" alt="排盤結果圖檔" />
+      <br>
+      <button class="close-btn" onclick="closeModal()">關閉視窗</button>
+    </div>
+  </div>
+
   <script>
-    // 鎖定右鍵防護
     document.addEventListener('contextmenu', _0x1 => _0x1.preventDefault()); 
 
-    // 核心邏輯混淆
     const _0xM = {1:'木',2:'木',3:'火',4:'火',5:'土',6:'土',7:'金',8:'金',9:'水',0:'水'};
     const _0xS = {'木':'火','火':'土','土':'金','金':'水','水':'木'};
     const _0xK = {'木':'土','土':'水','水':'火','火':'金','金':'木'};
@@ -129,12 +146,10 @@
     }
 
     let _0xApp = null;
-    let _0xRep = null;
 
-    // 啟動時自動讀取外部 JSON (加上 ./ 確保在 GitHub Pages 抓取當前目錄)
     window.onload = async function() {
       try {
-        const response = await fetch('./iching_data.json?v=1');
+        const response = await fetch('./iching_data.json?v=2');
         if (!response.ok) throw new Error('伺服器回應錯誤');
         const dbData = await response.json();
         _0xApp = new _0xKNA(dbData);
@@ -146,7 +161,7 @@
         document.getElementById('sysStatus').style.color = '#27ae60';
       } catch (error) {
         console.error('讀取 JSON 失敗:', error);
-        document.getElementById('sysStatus').innerText = '資料庫讀取失敗！請確認檔案路徑與大小寫。';
+        document.getElementById('sysStatus').innerText = '資料庫讀取失敗！請確認檔案路徑。';
         document.getElementById('sysStatus').style.color = '#e74c3c';
       }
     };
@@ -158,13 +173,12 @@
       if (_0xS.length < 2 || _0xS.length > 4) { alert("請輸入有效的筆畫格式，例如：16,3,8"); return; }
       
       try {
-        _0xRep = _0xApp._az(_0xS);
-        _0xRnd(_0xRep);
+        let rep = _0xApp._az(_0xS);
+        _0xRnd(rep);
         
         document.getElementById('exportWrapper').style.display = 'block';
         document.getElementById('saveBtn').style.display = 'inline-block';
 
-        // 觸發 GA4 事件：成功計算排盤
         gtag('event', 'calculate_hexagram', {
           'event_category': 'Engagement',
           'event_label': '執行排盤',
@@ -204,17 +218,18 @@
       `;
     }
 
-    function saveResultAsImage() {
+    // 將畫面轉為圖片並以彈出視窗顯示 (避開 LINE 下載限制)
+    function generateAndShowImage() {
       const saveBtn = document.getElementById('saveBtn');
       const originalText = saveBtn.innerHTML;
       
       saveBtn.innerHTML = '⏳ 圖片生成中...';
       saveBtn.disabled = true;
 
-      // 觸發 GA4 事件：儲存圖檔
-      gtag('event', 'download_image', {
+      // 觸發 GA4 事件
+      gtag('event', 'generate_image', {
         'event_category': 'Engagement',
-        'event_label': '儲存結果圖檔'
+        'event_label': '生成結果圖檔'
       });
 
       const elementToCapture = document.getElementById('exportWrapper');
@@ -224,10 +239,12 @@
         backgroundColor: '#f4f4f9', 
         useCORS: true 
       }).then(canvas => {
-        const link = document.createElement('a');
-        link.download = `靈數象限排盤結果_${new Date().getTime()}.png`;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
+        // 將 Canvas 轉為 Base64 圖片資料
+        const imgData = canvas.toDataURL('image/png');
+        
+        // 將圖片塞入 Modal 中並顯示
+        document.getElementById('resultImage').src = imgData;
+        document.getElementById('imageModal').style.display = 'flex';
         
         saveBtn.innerHTML = originalText;
         saveBtn.disabled = false;
@@ -237,6 +254,11 @@
         saveBtn.innerHTML = originalText;
         saveBtn.disabled = false;
       });
+    }
+
+    // 關閉圖片彈出視窗
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
     }
   </script>
 </body>
