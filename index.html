@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="宙星 / Cosmostar">
+  <meta name="description" content="靈數象限 / 姓名脈絡核心解析系統 - 由 宙星 / Cosmostar 開發。結合三才五格與易經六十四卦，提供專業的磁場對應關係解析。">
+  <meta name="keywords" content="靈數象限, 姓名脈絡, 易經, 堪輿, 宙星, Cosmostar, 排盤系統, 算命">
+  
+  <title>靈數象限 / 姓名脈絡核心解析系統 - 宙星 / Cosmostar</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYRZVWZQBF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CYRZVWZQBF');
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; color: #333; line-height: 1.6; padding: 20px; max-width: 900px; margin: auto; }
+    h2, h3 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px; margin-top: 30px; }
+    .card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    .form-group { margin-bottom: 15px; }
+    label { font-weight: bold; display: block; margin-bottom: 5px; }
+    input[type="text"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
+    .btn-group { display: flex; gap: 10px; align-items: center; }
+    button { padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold; transition: background 0.3s; }
+    button.primary { background-color: #3498db; color: white; }
+    button.primary:hover { background-color: #2980b9; }
+    button.primary:disabled { background-color: #bdc3c7; cursor: not-allowed; }
+    button.success { background-color: #2ecc71; color: white; display: none; }
+    button.success:hover { background-color: #27ae60; }
+    button.success:disabled { background-color: #a5dfb8; cursor: wait; }
+    .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+    .box { background: #e8f4f8; padding: 15px; border-radius: 6px; border-left: 4px solid #3498db; }
+    .alert { color: #d35400; font-weight: bold; }
+    .box.moving-line { grid-column: 1 / -1; border-left: 5px solid #e74c3c; background: #fff3f3; }
+    .moving-line-title { color: #c0392b; font-size: 1.1em; margin-bottom: 8px; display: block; }
+    
+    /* 匯出圖檔的專屬美化區域 */
+    #exportWrapper { background-color: #f4f4f9; padding: 15px; border-radius: 8px; }
+    
+    /* 免責聲明樣式 */
+    .disclaimer { font-size: 0.85em; color: #7f8c8d; text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px dashed #bdc3c7; }
+    #sysStatus { font-size: 0.9em; color: #e67e22; margin-left: 10px; }
+
+    /* 彈出視窗 (Modal) 樣式 - 手機長按專用 */
+    #imageModal {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+      background: rgba(0,0,0,0.85); z-index: 9999; justify-content: center; 
+      align-items: center; flex-direction: column; overflow-y: auto; padding: 20px; box-sizing: border-box;
+    }
+    .modal-content { background: #fff; padding: 15px; border-radius: 8px; max-width: 100%; text-align: center; }
+    .modal-hint { color: #e74c3c; font-weight: bold; margin-bottom: 15px; font-size: 1.1em; }
+    #resultImage { max-width: 100%; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    .close-btn { margin-top: 20px; background-color: #95a5a6; color: white; padding: 12px 30px; border-radius: 20px; font-size: 16px; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <h2>靈數象限 / 姓名脈絡核心解析系統</h2>
+
+  <div class="card">
+    <div class="form-group">
+      <label for="strokeInput">請輸入姓名筆畫 (請以逗號分隔，例如：16,3,8)</label>
+      <input type="text" id="strokeInput" placeholder="例如: 16,3,8" value="16,3,8">
+    </div>
+    <div class="btn-group">
+      <button class="primary" id="runBtn" onclick="runAnalysis()" disabled>系統載入中...</button>
+      <span id="sysStatus">正在讀取外部資料庫...</span>
+      <button class="success" id="saveBtn" onclick="generateAndShowImage()">📥 儲存結果 (圖檔)</button>
+    </div>
+  </div>
+
+  <div id="exportWrapper" style="display: none;">
+    <div id="outputArea">
+      <div class="card" style="margin-bottom:15px;"><h3>一、三才五格分析</h3><div class="grid-container" id="gridOutput"></div></div>
+      <div class="card" style="margin-bottom:15px;"><h3>二、五行生剋吉凶</h3><div id="sancaiOutput"></div></div>
+      <div class="card" style="margin-bottom:15px;"><h3>三、易經卦象推演</h3><div class="grid-container" id="hexagramOutput"></div></div>
+      
+      <div class="disclaimer">
+        免責聲明：本系統解析為學術參考之磁場對應關係，僅供參考。<br>
+        © 宙星 / Cosmostar 開發
+      </div>
+    </div>
+  </div>
+
+  <div id="imageModal">
+    <div class="modal-content">
+      <div class="modal-hint">👆 請「長按」下方圖片儲存至手機 👆</div>
+      <img id="resultImage" alt="排盤結果圖檔" />
+      <br>
+      <button class="close-btn" onclick="closeModal()">關閉視窗</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('contextmenu', _0x1 => _0x1.preventDefault()); 
+
+    const _0xM = {1:'木',2:'木',3:'火',4:'火',5:'土',6:'土',7:'金',8:'金',9:'水',0:'水'};
+    const _0xS = {'木':'火','火':'土','土':'金','金':'水','水':'木'};
+    const _0xK = {'木':'土','土':'水','水':'火','火':'金','金':'木'};
+    const _0xT = {1:{n:'乾',b:'111'},2:{n:'兌',b:'110'},3:{n:'離',b:'101'},4:{n:'震',b:'100'},5:{n:'巽',b:'011'},6:{n:'坎',b:'010'},7:{n:'艮',b:'001'},8:{n:'坤',b:'000'}};
+
+    class _0xKNA {
+      constructor(d) { this.d = d; }
+      _cG(s) {
+        let t, r, d, z, l = s.length;
+        if(l===3){t=s[0]+1;r=s[0]+s[1];d=s[1]+s[2];z=s[0]+s[1]+s[2];}
+        else if(l===2){t=s[0]+1;r=s[0]+s[1];d=s[1]+1;z=s[0]+s[1];}
+        else if(l===4){t=s[0]+s[1];r=s[1]+s[2];d=s[2]+s[3];z=s[0]+s[1]+s[2]+s[3];}
+        return {t,r,d,z};
+      }
+      _gW(s) { return _0xM[s%10]; }
+      _cR(sj, ob, on) {
+        if(sj===ob) return {rl:'比和', rs:'吉', d:`五行相同，與${on}關係融洽。`};
+        if(_0xS[sj]===ob) return {rl:`${sj}生${ob}`, rs:'吉', d:`自己付出照顧${on}，得人和。`};
+        if(_0xS[ob]===sj) return {rl:`${ob}生${sj}`, rs:'大吉', d:`深得${on}的提攜與助力。`};
+        if(_0xK[sj]===ob) return {rl:`${sj}剋${ob}`, rs:'凶', d:`對${on}掌控欲強，易生摩擦。`};
+        if(_0xK[ob]===sj) return {rl:`${ob}剋${sj}`, rs:'大凶', d:`受到${on}的壓制或拖累。`};
+        return {rl:'未知',rs:'平',d:'資料無法判定'};
+      }
+      _eSC(g) {
+        let tw = this._gW(g.t), rw = this._gW(g.r), dw = this._gW(g.d);
+        return { cf:`天${tw} - 人${rw} - 地${dw}`, sp:this._cR(rw, tw, '長輩/上司'), sb:this._cR(rw, dw, '晚輩/家庭') };
+      }
+      _gH(g) {
+        let un = (g.t+g.r)%8||8, ln = (g.r+g.d)%8||8, ml = g.z%6||6;
+        let bb = _0xT[ln].b + _0xT[un].b;
+        let mb = bb.substring(1,4) + bb.substring(2,5);
+        let cb = bb.substring(0,ml-1) + (bb[ml-1]==='1'?'0':'1') + bb.substring(ml);
+        let fb = (b) => ({full_name:'資料缺失', judgment_modern:'請檢查 JSON 檔案完整性。', lines:[]});
+        let fh = (b) => this.d.find(h=>h.binary===b)||fb(b);
+        let bH = fh(bb);
+        let mLD = (bH.lines&&bH.lines.length>=ml) ? bH.lines[ml-1] : null;
+        return { ml, bH, mH:fh(mb), cH:fh(cb), mLD };
+      }
+      _az(s) {
+        let g = this._cG(s);
+        return {s, g, sC:this._eSC(g), hx:this._gH(g)};
+      }
+    }
+
+    let _0xApp = null;
+
+    window.onload = async function() {
+      try {
+        const response = await fetch('./iching_data.json?v=' + new Date().getTime());
+        if (!response.ok) throw new Error('伺服器回應錯誤');
+        const dbData = await response.json();
+        _0xApp = new _0xKNA(dbData);
+        
+        const runBtn = document.getElementById('runBtn');
+        runBtn.disabled = false;
+        runBtn.innerText = '開始排盤';
+        document.getElementById('sysStatus').innerText = '資料庫掛載完成';
+        document.getElementById('sysStatus').style.color = '#27ae60';
+      } catch (error) {
+        console.error('讀取 JSON 失敗:', error);
+        document.getElementById('sysStatus').innerText = '資料庫讀取失敗！請確認檔案路徑。';
+        document.getElementById('sysStatus').style.color = '#e74c3c';
+      }
+    };
+
+    function runAnalysis() {
+      if (!_0xApp) { alert("資料庫尚未載入，請確認伺服器環境。"); return; }
+      const _0xI = document.getElementById('strokeInput').value;
+      const _0xS = _0xI.split(',').map(s => parseInt(s.trim())).filter(n => !isNaN(n));
+      if (_0xS.length < 2 || _0xS.length > 4) { alert("請輸入有效的筆畫格式，例如：16,3,8"); return; }
+      
+      try {
+        let rep = _0xApp._az(_0xS);
+        _0xRnd(rep);
+        
+        document.getElementById('exportWrapper').style.display = 'block';
+        document.getElementById('saveBtn').style.display = 'inline-block';
+
+        gtag('event', 'calculate_hexagram', {
+          'event_category': 'Engagement',
+          'event_label': '執行排盤',
+          'value': _0xS.join(',')
+        });
+
+      } catch (e) {
+        alert("排盤發生錯誤，請確認輸入數值。");
+      }
+    }
+
+    function _0xRnd(d) {
+      document.getElementById('gridOutput').innerHTML = `
+        <div class="box"><strong>天格：</strong> ${d.g.t}</div>
+        <div class="box"><strong>人格：</strong> ${d.g.r}</div>
+        <div class="box"><strong>地格：</strong> ${d.g.d}</div>
+        <div class="box"><strong>總格：</strong> ${d.g.z}</div>
+      `;
+      document.getElementById('sancaiOutput').innerHTML = `
+        <p><strong>整體格局：</strong> <span class="alert">${d.sC.cf}</span></p>
+        <div class="box" style="margin-bottom: 10px;">
+          <strong>長輩運 (${d.sC.sp.rl} - ${d.sC.sp.rs})：</strong><br>${d.sC.sp.d}
+        </div>
+        <div class="box">
+          <strong>晚輩運 (${d.sC.sb.rl} - ${d.sC.sb.rs})：</strong><br>${d.sC.sb.d}
+        </div>
+      `;
+      let mH = '';
+      if (d.hx.mLD) {
+        mH = `<div class="box moving-line"><strong class="moving-line-title">📌 關鍵動爻解析 (${d.hx.bH.name}卦 第 ${d.hx.ml} 爻變 - ${d.hx.mLD.name})：</strong><strong>【原文】</strong> ${d.hx.mLD.text}<br><strong>【白話】</strong> <span style="color: #333;">${d.hx.mLD.modern}</span></div>`;
+      }
+      document.getElementById('hexagramOutput').innerHTML = `
+        <div class="box"><strong>本卦 (早年)：</strong> ${d.hx.bH.full_name}<br><small>${d.hx.bH.judgment_modern}</small></div>
+        <div class="box"><strong>互卦 (中年)：</strong> ${d.hx.mH.full_name}<br><small>${d.hx.mH.judgment_modern}</small></div>
+        <div class="box"><strong>變卦 (晚年 - 動爻 ${d.hx.ml})：</strong> ${d.hx.cH.full_name}<br><small>${d.hx.cH.judgment_modern}</small></div>
+        ${mH}
+      `;
+    }
+
+    // ★★★ 將畫面轉為圖片並以彈出視窗顯示 (避開 LINE 下載限制) ★★★
+    function generateAndShowImage() {
+      const saveBtn = document.getElementById('saveBtn');
+      const originalText = saveBtn.innerHTML;
+      
+      saveBtn.innerHTML = '⏳ 圖片生成中...';
+      saveBtn.disabled = true;
+
+      gtag('event', 'generate_image', {
+        'event_category': 'Engagement',
+        'event_label': '生成結果圖檔'
+      });
+
+      const elementToCapture = document.getElementById('exportWrapper');
+
+      html2canvas(elementToCapture, {
+        scale: 2, 
+        backgroundColor: '#f4f4f9', 
+        useCORS: true 
+      }).then(canvas => {
+        // 將 Canvas 轉為 Base64 圖片資料，直接塞入 HTML 顯示
+        const imgData = canvas.toDataURL('image/png');
+        document.getElementById('resultImage').src = imgData;
+        document.getElementById('imageModal').style.display = 'flex';
+        
+        saveBtn.innerHTML = originalText;
+        saveBtn.disabled = false;
+      }).catch(err => {
+        console.error("圖片生成失敗:", err);
+        alert("圖片生成失敗，請稍後再試。");
+        saveBtn.innerHTML = originalText;
+        saveBtn.disabled = false;
+      });
+    }
+
+    // 關閉圖片彈出視窗
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
