@@ -1,0 +1,1156 @@
+[
+  {
+    "id": 1,
+    "name": "乾",
+    "full_name": "乾為天",
+    "binary": "111111",
+    "trigrams": { "upper": "乾", "lower": "乾" },
+    "five_elements": "金",
+    "judgment": "元，亨，利，貞。",
+    "judgment_modern": "大吉大利，事業鼎盛。具備創始、亨通、利物、貞固四種美德，但需戒驕戒躁。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "潛龍，勿用。", "modern": "龍尚潛伏在深水中，時機未成熟，不宜有所作為。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "見龍在田，利見大人。", "modern": "才華開始顯露，宜尋求貴人提拔或與有力人士合作。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "君子終日乾乾，夕惕若，厲無咎。", "modern": "終日勤奮努力，夜晚依然保持警惕，雖有危險但不會有災難。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "或躍在淵，無咎。", "modern": "處於進退轉折點，若能根據形勢靈活變通，便不會有過錯。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "飛龍在天，利見大人。", "modern": "事業達到高峰，權威與聲望俱佳，是大展鴻圖的最佳時機。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "亢龍，有悔。", "modern": "位高已極，若不知進退、過度擴張，則會陷入窮困而後悔。" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "坤",
+    "full_name": "坤為地",
+    "binary": "000000",
+    "trigrams": { "upper": "坤", "lower": "坤" },
+    "five_elements": "土",
+    "judgment": "元，亨，利牝馬之貞。君子有攸往，先迷後得主，利西南得朋，東北喪朋。安貞，吉。",
+    "judgment_modern": "柔順包容，厚德載物。適合追隨他人，不宜主動出擊，堅守正道則吉。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "履霜，堅冰至。", "modern": "腳下踏著薄霜，預見寒冬與堅冰將至。凡事應防微杜漸。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "直，方，大，不習無不利。", "modern": "具備正直、端方、廣大的品德，順其自然即吉，無往不利。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "含章可貞。或從王事，無成有終。", "modern": "懷才而不顯露，堅守正道。輔佐上位者做事，不居功則有善終。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "括囊，無咎，無譽。", "modern": "守口如瓶，低調自保。雖得不到讚譽，但可免除災禍。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "黃裳，元吉。", "modern": "保持中庸與謙遜，處尊位而柔順，大吉大利。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "龍戰于野，其血玄黃。", "modern": "陰氣極盛與陽氣相爭，兩敗俱傷。暗示過度固執將導致慘痛代價。" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "屯",
+    "full_name": "水雷屯",
+    "binary": "100010",
+    "trigrams": { "upper": "坎", "lower": "震" },
+    "five_elements": "水",
+    "judgment": "屯，元亨利貞。勿用，有攸往，利建侯。",
+    "judgment_modern": "萬物始生，初創維艱。時機未熟不宜輕動，宜廣結善緣，安邦定基。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "磐桓，利居貞，利建侯。", "modern": "基業未穩，徘徊不前。宜堅守正道以待時機，利於建立基礎。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "屯如邅如，乘馬班如。匪寇婚媾，女子貞不字，十年乃字。", "modern": "前路受阻，遇來者為求親而非劫寇。需耐心等待，久蓄方能成事。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "即鹿無虞，惟入于林中。君子幾不如舍，往吝。", "modern": "盲目追逐而無指引，必陷入困境。當捨則捨，強求必招困窘。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "乘馬班如，求婚媾，往吉，無不利。", "modern": "若能尋求賢者輔佐結盟，勇敢前行則吉，無所不利。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "屯其膏，小貞吉，大貞凶。", "modern": "受制於客觀環境，恩澤難施。固守小節則吉，圖謀大事則凶險。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "乘馬班如，泣血漣如。", "modern": "進退失據，孤立無援。處境極其凶險，面臨重大挫敗。" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "蒙",
+    "full_name": "山水蒙",
+    "binary": "010001",
+    "trigrams": { "upper": "艮", "lower": "坎" },
+    "five_elements": "火",
+    "judgment": "蒙，亨。匪我求童蒙，童蒙求我。初筮告，再三瀆，瀆則不告。利貞。",
+    "judgment_modern": "啟蒙發智，事物處於萌芽階段。需虛心求教，不可輕慢反覆，宜守正道。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "發蒙，利用刑人，用說桎梏，以往吝。", "modern": "啟蒙初期需建立嚴格規範，但不可過度嚴苛，否則適得其反。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "包蒙吉，納婦吉，子克家。", "modern": "以寬容之心對待無知者為吉，能包容接納，家業可興。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "勿用取女，見金夫，不有躬，無攸利。", "modern": "因見利忘義而失去原則，此類對象不可取，交往無利。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "困蒙，吝。", "modern": "受困於無知與蒙蔽之中，孤立無援，處境困難。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "童蒙，吉。", "modern": "如孩童般保有純真與虛心求教的態度，大吉。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "擊蒙，不利為寇，利禦寇。", "modern": "用強硬手段啟蒙，不可主動攻擊他人，但利於防衛外來侵犯。" }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "需",
+    "full_name": "水天需",
+    "binary": "111010",
+    "trigrams": { "upper": "坎", "lower": "乾" },
+    "five_elements": "土",
+    "judgment": "需，有孚，光亨，貞吉。利涉大川。",
+    "judgment_modern": "險在前而健於內，需耐心等待時機。心懷誠信，時機到來利於大展宏圖。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "需于郊，利用恆，無咎。", "modern": "在遠處郊外等待，遠離危險核心。保持恆心與耐心則無災咎。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "需于沙，小有言，終吉。", "modern": "逐漸靠近險境（沙灘），會有些許口舌是非，但最終吉利。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "需于泥，致寇至。", "modern": "陷入泥濘之中，處境被動，容易招致外來敵害或麻煩。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "需于血，出自穴。", "modern": "身處極度危險的血光之中，唯有順應形勢方能從深穴中脫險。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "需于酒食，貞吉。", "modern": "在酒食宴樂中從容等待，地位穩固，堅守正道則吉。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "入于穴，有不速之客三人來，敬之終吉。", "modern": "陷入絕境時，會有意外的訪客或變數出現，恭敬對待則最終逢凶化吉。" }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "訟",
+    "full_name": "天水訟",
+    "binary": "010111",
+    "trigrams": { "upper": "乾", "lower": "坎" },
+    "five_elements": "火",
+    "judgment": "訟，有孚，窒惕，中吉，終凶。利見大人，不利涉大川。",
+    "judgment_modern": "爭訟將起，雖有理但受阻。適可而止則吉，執意訴訟到底必凶，不宜冒險。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "不永所事，小有言，終吉。", "modern": "不將爭端擴大，雖有小口角，但及早抽身最終吉利。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "不克訟，歸而逋，其邑人三百戶，無眚。", "modern": "自知訴訟不利，果斷退避逃走，保護了族人免受牽連災禍。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "食舊德，貞厲，終吉。或從王事，無成。", "modern": "安享舊有的恩德基業，堅守正道雖有險但終吉。勿圖新功。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "不克訟，復即命，渝，安貞吉。", "modern": "訴訟無法取勝，回歸本分改變初衷，安分守己則吉。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "訟，元吉。", "modern": "由公正嚴明的上位者來裁決爭端，大吉大利。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "或錫之鞶帶，終朝三褫之。", "modern": "即使因爭訟贏得榮耀，也會一天之內被剝奪三次。暗示好訟者最終無好下場。" }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "師",
+    "full_name": "地水師",
+    "binary": "010000",
+    "trigrams": { "upper": "坤", "lower": "坎" },
+    "five_elements": "水",
+    "judgment": "師，貞，丈人吉，無咎。",
+    "judgment_modern": "興師動眾，需出以正道。委任老成持重、有德行之人統御方可獲吉無災。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "師出以律，否臧凶。", "modern": "軍隊出征必須紀律嚴明，否則即使打了勝仗也有凶險。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "在師中，吉無咎，王三錫命。", "modern": "將領在軍中深受擁戴與信任，多次獲得君王獎賞，吉利。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "師或輿尸，凶。", "modern": "用人不當，導致軍隊大敗，載運屍體而歸，凶險。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "師左次，無咎。", "modern": "審時度勢，軍隊主動後退駐紮，保全實力，無咎。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "田有禽，利執言，無咎。長子帥師，弟子輿尸，貞凶。", "modern": "有敵人來犯，出師有名。必須委任有才能的統帥，若用人不當必敗。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "大君有命，開國承家，小人勿用。", "modern": "戰爭勝利後論功行賞，但不可重用道德敗壞的小人治國。" }
+    ]
+  },
+{
+    "id": 8,
+    "name": "比",
+    "full_name": "水地比",
+    "binary": "000010",
+    "trigrams": { "upper": "坎", "lower": "坤" },
+    "five_elements": "土",
+    "judgment": "比，吉。原筮，元永貞，無咎。不寧方來，後夫凶。",
+    "judgment_modern": "相親相輔，互助合作。誠心結交為吉，遲疑不決或失去依靠則有凶險。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "有孚比之，無咎。有孚盈缶，終來有他，吉。", "modern": "以誠信結交，無咎。誠意如滿缸之水，終將迎來意想不到的喜慶與助力。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "比之自內，貞吉。", "modern": "發自內心的真誠結交，堅守正道，吉利。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "比之匪人。", "modern": "所結交之人非其類，遇人不淑，需防小人。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "外比之，貞吉。", "modern": "向外結交賢明之士，堅守正道，吉利。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "顯比，王用三驅，失前禽。邑人不誡，吉。", "modern": "光明正大地結交。如君王狩獵網開一面，去留隨意，不強求，吉利。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "比之無首，凶。", "modern": "結交無人領頭，或錯失先機而遲疑，最終必然凶險。" }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "小畜",
+    "full_name": "風天小畜",
+    "binary": "111011",
+    "trigrams": { "upper": "巽", "lower": "乾" },
+    "five_elements": "木",
+    "judgment": "小畜，亨。密雲不雨，自我西郊。",
+    "judgment_modern": "力量尚微，為小有積蓄。時運正在醞釀中（密雲不雨），宜蓄勢待發。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "復自道，何其咎，吉。", "modern": "回歸本分與正道，不強求前進，有何過錯？吉利。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "牽復，吉。", "modern": "被同伴牽引而回歸正道，避免了盲目冒進，吉利。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "輿說輻，夫妻反目。", "modern": "車輪脫落無法前進，如夫妻反目般內部不和，強行必敗。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "有孚，血去惕出，無咎。", "modern": "秉持誠信，化解了流血衝突與恐懼恐慌，免於災咎。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "有孚攣如，富以其鄰。", "modern": "以誠信團結眾人，如同緊密相連，與鄰里共享財富與成果。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "既雨既處，尚德載，婦貞厲。月幾望，君子征凶。", "modern": "大雨已降，蓄積已滿。此時應適可而止，若再貪進強求（如滿月將虧），必遭凶險。" }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "履",
+    "full_name": "天澤履",
+    "binary": "110111",
+    "trigrams": { "upper": "乾", "lower": "兌" },
+    "five_elements": "土",
+    "judgment": "履虎尾，不咥人，亨。",
+    "judgment_modern": "如履薄冰，伴君如伴虎。若能步步為營，以和悅態度應對強者，反得亨通。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "素履，往無咎。", "modern": "保持本色，以純樸坦蕩的態度前行，沒有災咎。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "履道坦坦，幽人貞吉。", "modern": "前途平坦，但仍應如隱士般低調行事，堅守正道則吉。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "眇能視，跛能履，履虎尾，咥人，凶。武人為于大君。", "modern": "能力不足卻強行妄為，如同踩到老虎尾巴被咬，凶險。匹夫之勇不可取。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "履虎尾，愬愬，終吉。", "modern": "踩到虎尾，但因內心戒懼、小心謹慎，最終化險為夷，吉利。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "夬履，貞厲。", "modern": "身居高位而剛愎自用，一意孤行，即使動機純正也潛藏危險。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "視履考祥，其旋元吉。", "modern": "回顧來時路，考量一切吉凶得失，若能圓滿善終，大吉大利。" }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "泰",
+    "full_name": "地天泰",
+    "binary": "111000",
+    "trigrams": { "upper": "坤", "lower": "乾" },
+    "five_elements": "土",
+    "judgment": "泰，小往大來，吉亨。",
+    "judgment_modern": "天地交泰，陰陽和諧。付出少而收穫大，運勢極佳，諸事順遂。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "拔茅茹，以其彙，征吉。", "modern": "拔起茅草，根部相連。象徵與志同道合者攜手並進，大吉。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "包荒，用馮河，不遐遺，朋亡，得尚于中行。", "modern": "包容荒穢，徒步過河。不遺棄遠方之才，不結黨營私，秉持中道而行。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "無平不陂，無往不復，艱貞無咎。勿恤其孚，于食有福。", "modern": "平地終有陡坡，去者終會歸來。居安思危，堅守正道無咎，將享福祿。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "翩翩不富，以其鄰，不戒以孚。", "modern": "不恃財富，與鄰里和睦相處。以誠信相待，不需互相戒備。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "帝乙歸妹，以祉元吉。", "modern": "如帝王嫁妹般放下身段，謙和下嫁，帶來福祉，大吉大利。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "城復于隍，勿用師。自邑告命，貞吝。", "modern": "城牆倒塌陷入城壕，泰極生否。此時不可動武，只能退守自保，固執己見將致憾。" }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "否",
+    "full_name": "天地否",
+    "binary": "000111",
+    "trigrams": { "upper": "乾", "lower": "坤" },
+    "five_elements": "金",
+    "judgment": "否之匪人，不利君子貞，大往小來。",
+    "judgment_modern": "天地不交，閉塞不通。付出多而收穫少，小人得志，君子宜隱忍自保。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "拔茅茹，以其彙，貞吉亨。", "modern": "小人結黨營私。君子應見微知著，固守正道，明哲保身。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "包承。小人吉，大人否亨。", "modern": "阿諛奉承之風盛行。小人得志，大人則應堅守節操，靜待時機轉變。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "包羞。", "modern": "包藏羞恥之心，行為不端卻試圖掩飾，局面敗壞。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "有命無咎，疇離祉。", "modern": "奉天命而出，扭轉否塞的局面，無咎，並將福祉澤及眾人。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "休否，大人吉。其亡其亡，繫于苞桑。", "modern": "閉塞之局將解，大人吉利。但仍需抱持「快要滅亡」的危機意識，方能堅如磐石。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "傾否，先否後喜。", "modern": "否極泰來，傾覆了閉塞的局面。先經歷艱難，最終迎來喜悅。" }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "同人",
+    "full_name": "天火同人",
+    "binary": "101111",
+    "trigrams": { "upper": "乾", "lower": "離" },
+    "five_elements": "火",
+    "judgment": "同人于野，亨。利涉大川，利君子貞。",
+    "judgment_modern": "志同道合，廣結人緣。在廣闊天地間與人和睦相處，利於共創大業。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "同人于門，無咎。", "modern": "一出門便與人真誠交往，心胸開闊，無災咎。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "同人于宗，吝。", "modern": "僅與自己宗族或小圈子的人交往，心胸狹隘，易招致遺憾。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "伏戎于莽，升其高陵，三歲不興。", "modern": "將軍隊埋伏在草叢中，卻不敢出擊，多年一無所成。象徵疑心過重，錯失良機。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "乘其墉，弗克攻，吉。", "modern": "攻到城牆上卻及時懸崖勒馬，不發動攻擊，化干戈為玉帛，吉利。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "同人，先號咷而後笑。大師克相遇。", "modern": "志同道合者歷經千辛萬苦（先哭泣），最終戰勝阻礙相聚（後歡笑）。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "同人于郊，無悔。", "modern": "在郊外與人和平共處，遠離權力核心的鬥爭，安然無悔。" }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "大有",
+    "full_name": "火天大有",
+    "binary": "111101",
+    "trigrams": { "upper": "離", "lower": "乾" },
+    "five_elements": "火",
+    "judgment": "大有，元亨。",
+    "judgment_modern": "如日中天，大獲豐收。運勢昌隆，富甲一方，但需秉持謙和之心。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "無交害，匪咎，艱則無咎。", "modern": "不與有害的人事物交往，沒有過錯。保持艱苦奮鬥的警惕心則無咎。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "大車以載，有攸往，無咎。", "modern": "用大車承載重任與財富，前行無礙，足以擔當大任。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "公用亨于天子，小人弗克。", "modern": "王公將豐盛的收穫奉獻給天子，象徵大公無私。小人則做不到，只會貪婪。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "匪其彭，無咎。", "modern": "不自恃其豐盛而驕傲膨脹，保持謙虛，免於災咎。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "厥孚交如，威如，吉。", "modern": "以誠信與人交往，同時保持應有的威嚴，恩威並施，吉利。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "自天祐之，吉無不利。", "modern": "順應天理，獲得上天的護佑，大吉大利，無往不利。" }
+    ]
+  },
+{
+    "id": 15,
+    "name": "謙",
+    "full_name": "地山謙",
+    "binary": "001000",
+    "trigrams": { "upper": "坤", "lower": "艮" },
+    "five_elements": "土",
+    "judgment": "謙，亨，君子有終。",
+    "judgment_modern": "謙虛退讓，有功而不居。君子若能始終保持謙遜，必能獲得好結果。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "謙謙君子，用涉大川，吉。", "modern": "極度謙虛的君子，以此態度去克服艱險（涉大川），大吉。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "鳴謙，貞吉。", "modern": "謙虛的美德名聲遠播，堅守正道，吉利。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "勞謙，君子有終，吉。", "modern": "勞苦功高卻依然謙遜，君子必有善終，大吉。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "無不利，撝謙。", "modern": "發揮謙遜的美德，無往不利。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "不富，以其鄰，利用侵伐，無不利。", "modern": "不恃財富而以謙虛團結鄰里。以此凝聚力去討伐驕橫不講理者，無往不利。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "鳴謙，利用行師，征邑國。", "modern": "謙遜之名遠播，但已退無可退，利於出兵平定內部叛亂或討伐屬國。" }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "豫",
+    "full_name": "雷地豫",
+    "binary": "000100",
+    "trigrams": { "upper": "震", "lower": "坤" },
+    "five_elements": "木",
+    "judgment": "豫，利建侯行師。",
+    "judgment_modern": "順時而動，歡樂愉悅。利於建立基業或動員群眾，但不可過度沉溺安樂。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "鳴豫，凶。", "modern": "自鳴得意，過度沉溺於享樂而驕傲自滿，必然招致凶險。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "介于石，不終日，貞吉。", "modern": "意志堅定如磐石，不沉迷於逸樂，不過度流連，堅守正道大吉。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "盱豫，悔。遲有悔。", "modern": "諂媚上位者以求安樂，終會後悔。若不及時悔悟，必留遺憾。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "由豫，大有得。勿疑。朋盍簪。", "modern": "作為眾人安樂的泉源，大有收穫。不要疑慮，朋友們會如簪子聚攏頭髮般團結。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "貞疾，恆不死。", "modern": "長久處於安樂之中卻積勞成疾，但因身居尊位，尚可勉強維持而不致滅亡。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "冥豫，成有渝，無咎。", "modern": "昏暗沉迷於享樂之中。若能及時醒悟並改變作風，則可免於災咎。" }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "隨",
+    "full_name": "澤雷隨",
+    "binary": "100110",
+    "trigrams": { "upper": "兌", "lower": "震" },
+    "five_elements": "木",
+    "judgment": "隨，元亨利貞，無咎。",
+    "judgment_modern": "順應時勢，從善如流。跟隨正道與賢者，大吉大利而無災咎。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "官有渝，貞吉。出門交有功。", "modern": "思想觀念有所改變，順應正道則吉。走出小圈子去廣泛交往，必有功績。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "係小子，失丈夫。", "modern": "結交了小人，卻失去了君子（丈夫）。象徵因小失大，捨本逐末。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "係丈夫，失小子。隨有求得，利居貞。", "modern": "追隨君子，捨棄了小人。有所求必能得，但必須堅守正道。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "隨有獲，貞凶。有孚在道，以明，何咎。", "modern": "追隨者眾多且大有收穫，但功高震主潛藏凶險。唯有心懷誠信、行事光明磊落，方可無咎。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "孚于嘉，吉。", "modern": "真誠地信任並追隨善美的人事物，大吉。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "拘係之，乃從維之。王用亨于西山。", "modern": "被緊緊拉攏與跟隨，關係極度密切。君王在西山祭祀般誠心以待。" }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "蠱",
+    "full_name": "山風蠱",
+    "binary": "011001",
+    "trigrams": { "upper": "艮", "lower": "巽" },
+    "five_elements": "木",
+    "judgment": "蠱，元亨，利涉大川。先甲三日，後甲三日。",
+    "judgment_modern": "積弊已深，需革新除弊。大刀闊斧整頓利於發展，但事前事後皆需謹慎周密。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "幹父之蠱，有子，考無咎，厲終吉。", "modern": "挽救父輩留下的敗局。有能幹的子嗣承擔，可免前人過錯，雖艱難但終吉。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "幹母之蠱，不可貞。", "modern": "挽救母輩的過失，手段應當委婉柔和，不可過於剛硬死板。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "幹父之蠱，小有悔，無大咎。", "modern": "急於挽救父輩的敗局，手段略顯過激而有些懊悔，但方向正確，無大災。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "裕父之蠱，往見吝。", "modern": "對父輩的積弊過於寬容姑息，任其發展下去必會陷入困境。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "幹父之蠱，用譽。", "modern": "成功革除父輩的積弊，因此獲得了良好的聲譽與讚美。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "不事王侯，高尚其事。", "modern": "功成身退，不再過問世俗的王侯之事，保持高潔獨立的品格。" }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "臨",
+    "full_name": "地澤臨",
+    "binary": "110000",
+    "trigrams": { "upper": "坤", "lower": "兌" },
+    "five_elements": "土",
+    "judgment": "臨，元，亨，利，貞。至于八月有凶。",
+    "judgment_modern": "君臨天下，氣勢漸盛。初期亨通，但需防盛極而衰（至於八月有凶）。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "咸臨，貞吉。", "modern": "以真誠的感應來臨視眾人，堅守正道，吉利。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "咸臨，吉無不利。", "modern": "上下感應，志同道合地治理，吉利且無所不利。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "甘臨，無攸利。既憂之，無咎。", "modern": "用甜言蜜語去臨視安撫，動機不純則無利。若能察覺並為此擔憂改過，則無災咎。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "至臨，無咎。", "modern": "親自深入基層去臨視與了解狀況，沒有過錯。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "知臨，大君之宜，吉。", "modern": "以睿智的眼光去臨視治理，懂得任用賢才，這是偉大君王應有的風範，吉利。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "敦臨，吉無咎。", "modern": "以敦厚誠懇的態度去臨視指導，善始善終，吉利且沒有過錯。" }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "觀",
+    "full_name": "風地觀",
+    "binary": "000011",
+    "trigrams": { "upper": "巽", "lower": "坤" },
+    "five_elements": "木",
+    "judgment": "觀，盥而不薦，有孚顒若。",
+    "judgment_modern": "誠心觀察，以上化下。如祭祀般莊重虔誠，以德服人，宜多看少動。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "童觀，小人無咎，君子吝。", "modern": "如孩童般目光短淺地觀察。一般人尚可，但對君子而言則是恥辱遺憾。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "闚觀，利女貞。", "modern": "從門縫裡偷看，眼界狹隘。僅適合保守安分的女子堅守正道。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "觀我生，進退。", "modern": "觀察審視自身的作為與處境，以此來決定進退的時機。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "觀國之光，利用賓于王。", "modern": "觀察到國家政治清明的光輝，利於成為君王的座上賓，出仕為官。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "觀我生，君子無咎。", "modern": "作為君王，隨時審視自己的言行與施政，以身作則，無咎。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "觀其生，君子無咎。", "modern": "觀察天下百姓的生息與風俗，作為施政參考，君王能如此則無災咎。" }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "噬嗑",
+    "full_name": "火雷噬嗑",
+    "binary": "100101",
+    "trigrams": { "upper": "離", "lower": "震" },
+    "five_elements": "火",
+    "judgment": "噬嗑，亨。利用獄。",
+    "judgment_modern": "咬碎障礙，明察秋毫。利於整頓紀律、排除萬難或處理法律訴訟。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "屨校滅趾，無咎。", "modern": "犯小錯即被戴上腳鐐掩蓋腳趾，給予懲戒。防微杜漸，無災咎。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "噬膚滅鼻，無咎。", "modern": "咬軟肉卻深及鼻子，象徵刑罰過重或執行過當，但出發點為整頓，無咎。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "噬臘肉，遇毒。小吝，無咎。", "modern": "咬堅硬的臘肉卻咬到有毒的敗肉。遭遇棘手問題而受挫，有些遺憾但無大錯。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "噬乾胏，得金矢。利艱貞，吉。", "modern": "咬帶骨的乾肉，得到箭頭（象徵剛直的阻力）。過程艱難，但堅守正道必獲吉利。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "噬乾肉，得黃金。貞厲，無咎。", "modern": "咬乾肉得到黃金（象徵中庸之道）。過程雖有危險，但能明辨是非，無咎。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "何校滅耳，凶。", "modern": "罪大惡極，戴上重枷掩蓋了耳朵。不聽勸戒，累積成大惡，極其凶險。" }
+    ]
+  },
+{
+    "id": 22,
+    "name": "賁",
+    "full_name": "山火賁",
+    "binary": "101001",
+    "trigrams": { "upper": "艮", "lower": "離" },
+    "five_elements": "土",
+    "judgment": "賁，亨。小利有攸往。",
+    "judgment_modern": "文飾裝扮，注重表面。小有亨通，利於處理非核心的小事，但不宜掩蓋本質。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "賁其趾，舍車而徒。", "modern": "裝飾腳趾，捨棄乘車而徒步前行。腳踏實地，不慕虛榮，守正則吉。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "賁其須。", "modern": "如修飾鬍鬚般，依附於強者或上級來增添自身光彩，安分守己。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "賁如濡如，永貞吉。", "modern": "裝飾得光鮮亮麗、潤澤華美。若能長久保持內外兼修，堅守正道則吉。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "賁如皤如，白馬翰如。匪寇婚媾。", "modern": "裝飾樸素潔白，騎著白馬疾馳而來。來者並非盜寇而是求親，虛驚一場。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "賁于丘園，束帛戔戔。吝，終吉。", "modern": "在山林園圃中以質樸相待，禮物雖微薄（一小束絲帛），但心意真誠，終獲吉利。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "白賁，無咎。", "modern": "返璞歸真，以純白無華為最高境界。不加虛飾，洗盡鉛華，沒有災咎。" }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "剝",
+    "full_name": "山地剝",
+    "binary": "000001",
+    "trigrams": { "upper": "艮", "lower": "坤" },
+    "five_elements": "金",
+    "judgment": "剝，不利有攸往。",
+    "judgment_modern": "根基動搖，小人得勢。不利於主動出擊，宜謹言慎行，靜待時機轉變。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "剝床以足，蔑貞凶。", "modern": "床腳開始損壞，根基動搖。正道消亡，凶險之兆初現。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "剝床以辨，蔑貞凶。", "modern": "損壞蔓延到床榻的邊框。危機加深，若不堅守正道則有大凶。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "剝之，無咎。", "modern": "身處小人之中，但能與之周旋並暗中保持君子本色，免於災咎。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "剝床以膚，凶。", "modern": "災禍已逼近床面，危及切身（皮膚）。禍患迫在眉睫，極其凶險。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "貫魚，以宮人寵，無不利。", "modern": "如將魚串起般，帶領眾人歸順正道。如宮人獲得君王寵愛，無往不利。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "碩果不食，君子得輿，小人剝廬。", "modern": "僅存的巨大果實未被吃掉，保留了一線生機。君子將重獲民心擁戴，小人則自毀家園。" }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "復",
+    "full_name": "地雷復",
+    "binary": "100000",
+    "trigrams": { "upper": "坤", "lower": "震" },
+    "five_elements": "土",
+    "judgment": "復，亨。出入無疾，朋來無咎。反覆其道，七日來復，利有攸往。",
+    "judgment_modern": "一陽來復，生機重現。衰運已過，好運開始萌芽，按部就班前行有利。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "不遠復，無祇悔，元吉。", "modern": "迷途知返，過失不深便及時改正。沒有太大的懊悔，大吉。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "休復，吉。", "modern": "從容完美地回歸正道，心安理得，吉利。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "頻復，厲無咎。", "modern": "屢次犯錯又屢次改正。雖然過程充滿波折與危險，但終能改過自新，無災咎。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "中行獨復。", "modern": "在一群隨波逐流的人中，獨自堅定地回歸正道。象徵特立獨行，持守真理。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "敦復，無悔。", "modern": "敦厚誠懇地反省並回歸正道。態度堅決，了無遺憾。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "迷復，凶，有災眚。用行師，終有大敗，以其國君凶，至于十年不克征。", "modern": "執迷不悟，錯失回頭的良機。若強行出兵或行動必遭大敗，甚至十年內無法恢復元氣。" }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "無妄",
+    "full_name": "天雷無妄",
+    "binary": "100111",
+    "trigrams": { "upper": "乾", "lower": "震" },
+    "five_elements": "木",
+    "judgment": "無妄，元，亨，利，貞。其匪正有眚，不利有攸往。",
+    "judgment_modern": "不虛偽妄動，順乎自然。心存正念則吉，若有非分之想則必招災禍。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "無妄，往吉。", "modern": "不懷虛妄之心，腳踏實地向前邁進，吉利。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "不耕獲，不菑畬，則利有攸往。", "modern": "不計較付出與收穫（不問耕耘先問收穫）。順其自然行事，利於前進。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "無妄之災，或繫之牛，行人之得，邑人之災。", "modern": "遭受無妄之災。路人牽走拴著的牛，卻讓同村人背黑鍋受牽連。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "可貞，無咎。", "modern": "堅守正道，不生非分之想，便可免於災禍與過錯。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "無妄之疾，勿藥有喜。", "modern": "沒有虛妄之念卻意外染病，不需急於亂投藥，順其自然便會痊癒。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "無妄，行有眚，無攸利。", "modern": "雖然沒有妄念，但此時大環境不宜行動。若強行前進必有災難，無利可圖。" }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "大畜",
+    "full_name": "山天大畜",
+    "binary": "111001",
+    "trigrams": { "upper": "艮", "lower": "乾" },
+    "five_elements": "土",
+    "judgment": "大畜，利貞，不家食吉，利涉大川。",
+    "judgment_modern": "大有積蓄，厚積薄發。利於出外謀生或大展身手，不可困守家中。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "有厲利已。", "modern": "前途有危險，此時利於停止前進，蓄積力量。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "輿說輹。", "modern": "卸下車軸，主動停止前進。審時度勢，不盲目冒進。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "良馬逐，利艱貞。曰閑輿衛，利有攸往。", "modern": "如良馬奔馳般勢不可擋，但仍需在艱難中守正。熟練防禦與駕車技巧，利於前進。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "童牛之牿，元吉。", "modern": "在小牛長出角前就戴上防護木，防患於未然。象徵及早防範，大吉。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "豶豕之牙，吉。", "modern": "將兇猛野豬閹割，制伏其凶性，化解了危機，吉利。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "何天之衢，亨。", "modern": "蓄積已滿，厚積薄發。如行走在四通八達的康莊大道上，暢通無阻。" }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "頤",
+    "full_name": "山雷頤",
+    "binary": "100001",
+    "trigrams": { "upper": "艮", "lower": "震" },
+    "five_elements": "木",
+    "judgment": "頤，貞吉。觀頤，自求口實。",
+    "judgment_modern": "修身養性，謹言慎行。注重飲食與言語，觀察他人如何自養，自求多福。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "舍爾靈龜，觀我朵頤，凶。", "modern": "捨棄自身如靈龜般不吃不喝的修為，卻羨慕別人大快朵頤。貪婪妄想必致凶險。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "顛頤，拂經，于丘頤，征凶。", "modern": "違背常理向下求養，又貪求高位者的供養。行事不端，前行必凶。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "拂頤，貞凶，十年勿用，無攸利。", "modern": "違背養生之道，追求不正當的欲望，堅守此道必凶。長達十年不可重用，無利可圖。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "顛頤，吉。虎視眈眈，其欲逐逐，無咎。", "modern": "身居高位而向下求賢以養天下，吉利。如猛虎般專注於目標，孜孜不倦，無咎。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "拂經，居貞吉，不可涉大川。", "modern": "自身能力不足而有違常理地依靠賢者輔佐。安居守正則吉，但不宜冒險做大事。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "由頤，厲吉，利涉大川。", "modern": "作為天下人所仰賴的泉源，責任重大而艱難，但終獲吉利，能克服大難（涉大川）。" }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "大過",
+    "full_name": "澤風大過",
+    "binary": "011110",
+    "trigrams": { "upper": "兌", "lower": "巽" },
+    "five_elements": "木",
+    "judgment": "大過，棟橈，利有攸往，亨。",
+    "judgment_modern": "負擔過重，棟樑彎曲。面臨非常時期，需有超常的膽識與行動力方能突圍。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "藉用白茅，無咎。", "modern": "如祭祀時用白茅草墊底般恭敬謹慎。在非常時期保持極度的謹慎，無咎。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "枯楊生稊，老夫得其女妻，無不利。", "modern": "枯萎的楊樹長出新芽，老夫娶了年輕少妻。突破常規而重獲生機，無所不利。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "棟橈，凶。", "modern": "壓力過大，棟樑彎曲將折。剛愎自用，不尋求援助，必有傾覆之禍。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "棟隆，吉。有它吝。", "modern": "獲得支撐使得棟樑隆起堅固，吉利。但若有其他非分之想則會帶來遺憾。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "枯楊生華，老婦得其士夫，無咎無譽。", "modern": "枯萎的楊樹開出花朵，老婦嫁給年輕丈夫。雖突破常理勉強維持，但好景不常，無咎也無譽。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "過涉滅頂，凶，無咎。", "modern": "明知水深仍強行渡河，導致滅頂之災，凶險。但為理想或責任而犧牲，其志可嘉，在道義上沒有過錯。" }
+    ]
+  },
+{
+    "id": 29,
+    "name": "坎",
+    "full_name": "坎為水",
+    "binary": "010010",
+    "trigrams": { "upper": "坎", "lower": "坎" },
+    "five_elements": "水",
+    "judgment": "習坎，有孚，維心亨，行有尚。",
+    "judgment_modern": "重重險阻，危機四伏。唯有保持內心誠信與堅定，勇敢面對險境才能脫困。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "習坎，入于坎窞，凶。", "modern": "陷入重重險阻的深淵，處境極其凶險。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "坎有險，求小得。", "modern": "在險境中，只能退而求其次有小收穫，不可貪大冒進。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "來之坎坎，險且枕，入于坎窞，勿用。", "modern": "進退皆是險境，只能暫且安居忍耐，不可輕舉妄動。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "樽酒簋貳，用缶，納約自牖，終無咎。", "modern": "在險境中以最簡單樸素的祭品與誠意祈求，化繁為簡，最終無咎。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "坎不盈，祗既平，無咎。", "modern": "險阻尚未滿溢，只要水位平復便無災咎。象徵度過最危險的時刻。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "係用徽纆，寘于叢棘，三歲不得，凶。", "modern": "被繩索捆綁並投入荊棘叢中，三年無法脫身，代表深陷囹圄，極其凶險。" }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "離",
+    "full_name": "離為火",
+    "binary": "101101",
+    "trigrams": { "upper": "離", "lower": "離" },
+    "five_elements": "火",
+    "judgment": "離，利貞，亨。畜牝牛，吉。",
+    "judgment_modern": "依附攀附，光明絢麗。需依附正道，如養母牛般柔順溫和，方能獲吉。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "履錯然，敬之無咎。", "modern": "起步時步履交錯不穩，若能保持敬畏謹慎之心，則無災咎。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "黃離，元吉。", "modern": "如同黃色的光芒般，秉持中庸柔順之道，大吉大利。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "日昃之離，不鼓缶而歌，則大耋之嗟，凶。", "modern": "夕陽西下，若不能隨緣敲擊瓦缶高歌，便會陷入遲暮的哀嘆，凶險。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "突如其來如，焚如，死如，棄如。", "modern": "災難突如其來，如烈火焚燒般毀滅一切，最終被眾人拋棄。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "出涕沱若，戚嗟若，吉。", "modern": "因警惕而流下悲傷的眼淚，哀嘆恐懼，正因為這份憂患意識，反能逢凶化吉。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "王用出征，有嘉折首，獲匪其醜，無咎。", "modern": "君王出兵討伐，精準斬殺敵方首領，寬恕脅從者，恩威並施，無災咎。" }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "咸",
+    "full_name": "澤山咸",
+    "binary": "001110",
+    "trigrams": { "upper": "兌", "lower": "艮" },
+    "five_elements": "金",
+    "judgment": "咸，亨，利貞，取女吉。",
+    "judgment_modern": "心電感應，互相吸引。代表感情和諧、婚姻吉利，凡事以誠心感應為佳。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "咸其拇。", "modern": "感應在腳趾，表示行動初萌，但力量尚微，未付諸實行。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "咸其腓，凶，居吉。", "modern": "感應在小腿，急躁妄動有凶險。安分守己不隨波逐流則吉。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "咸其股，執其隨，往吝。", "modern": "感應在大腿，盲目跟隨別人行動，缺乏主見，必招致遺憾。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "貞吉悔亡，憧憧往來，朋從爾思。", "modern": "堅守正道則後悔消失。若心思不定地頻繁往來，只有小圈子的人才會順從你。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "咸其脢，無悔。", "modern": "感應在背脊肉，意志堅定，不為外物所擾，沒有後悔。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "咸其輔頰舌。", "modern": "感應在面頰與舌頭。只靠花言巧語去感應別人，缺乏真誠，流於表面。" }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "恆",
+    "full_name": "雷風恆",
+    "binary": "011100",
+    "trigrams": { "upper": "震", "lower": "巽" },
+    "five_elements": "木",
+    "judgment": "恆，亨，無咎，利貞，利有攸往。",
+    "judgment_modern": "持之以恆，長久不變。堅守常理與正道，利於長遠規劃與發展。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "浚恆，貞凶，無攸利。", "modern": "一開始就追求過度深遠的恆久，操之過急，堅守必凶，無所利。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "悔亡。", "modern": "能持守中庸之道，不過與不及，後悔自然消失。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "不恆其德，或承之羞，貞吝。", "modern": "不能恆久保持美德與原則，會招致羞辱，即使動機純正也免不了遺憾。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "田無禽。", "modern": "在田裡打獵卻沒有獵物。方向與方法錯誤，再怎麼恆久努力也徒勞無功。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "恆其德，貞，婦人吉，夫子凶。", "modern": "恆久保持順從的美德。對要求從一而終的女子為吉，但男子若缺乏果斷則凶險。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "振恆，凶。", "modern": "動盪不安而無法保持恆常，朝令夕改，妄動必凶。" }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "遯",
+    "full_name": "天山遯",
+    "binary": "001111",
+    "trigrams": { "upper": "乾", "lower": "艮" },
+    "five_elements": "金",
+    "judgment": "遯，亨，小利貞。",
+    "judgment_modern": "退避隱匿，明哲保身。小人道長，君子宜見機行事，退守以保全實力。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "遯尾，厲，勿用有攸往。", "modern": "退避時落在最後面，處境危險。此時只能隱忍，不可輕舉妄動。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "執之用黃牛之革，莫之勝說。", "modern": "像用黃牛皮堅固地綁住一樣，意志堅定地退隱，無人能改變其志向。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "係遯，有疾厲，畜臣妾吉。", "modern": "被私情牽絆而無法乾脆退避，如染病般危險。這種情況僅利於蓄養臣妾等小事。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "好遯，君子吉，小人否。", "modern": "能割捨所好而果斷退隱，君子能做到故吉利，小人貪戀名利則做不到。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "嘉遯，貞吉。", "modern": "從容完美、不留遺憾地退隱，堅守正道，吉利。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "肥遯，無不利。", "modern": "遠離世俗羈絆，無牽無掛地寬裕退隱，猶如閒雲野鶴，無往不利。" }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "大壯",
+    "full_name": "雷天大壯",
+    "binary": "111100",
+    "trigrams": { "upper": "震", "lower": "乾" },
+    "five_elements": "土",
+    "judgment": "大壯，利貞。",
+    "judgment_modern": "聲勢浩大，陽氣極盛。力量強大但易衝動，必須堅守正道，不可輕舉妄動。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "壯于趾，征凶，有孚。", "modern": "力量僅表現在腳趾上，卻急於前進，必然凶險，這是必然的道理。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "貞吉。", "modern": "力量充沛且能持守中正之道，不妄動，吉利。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "小人用壯，君子用罔，貞厲。羝羊觸藩，羸其角。", "modern": "小人恃強逞勇，君子則視力量為無物而防備。如公羊用角撞籬笆被卡住，有危險。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "貞吉悔亡，藩決不羸，壯于大輿之輹。", "modern": "堅守正道悔恨消失。如衝破籬笆不再被困，力量大如車軸，能載重遠行。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "喪羊于易，無悔。", "modern": "如在平坦之地走失了羊，失去了衝動的逞強之心，變得和順，沒有後悔。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "羝羊觸藩，不能退，不能遂，無攸利，艱則吉。", "modern": "公羊撞進籬笆，進退兩難，無利可圖。必須在艱難中反省忍耐才能獲吉。" }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "晉",
+    "full_name": "火地晉",
+    "binary": "000101",
+    "trigrams": { "upper": "離", "lower": "坤" },
+    "five_elements": "火",
+    "judgment": "晉，康侯用錫馬蕃庶，晝日三接。",
+    "judgment_modern": "旭日東升，晉升發展。才華受賞識，屢獲提拔，是求名求利的極佳時機。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "晉如，摧如，貞吉。罔孚，裕無咎。", "modern": "晉升之路初期受挫，堅守正道則吉。雖暫未獲信任，只要寬宏大量便無災咎。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "晉如，愁如，貞吉。受茲介福，于其王母。", "modern": "晉升之路充滿憂愁阻礙，堅守正道則吉。終將從高層或女性長輩那裡獲得大福。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "眾允，悔亡。", "modern": "獲得眾人的信任與支持，團結一致向前邁進，後悔消失。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "晉如鼫鼠，貞厲。", "modern": "像大老鼠般貪婪無度地追求晉升，即使動機純正，這種作法也充滿危險。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "悔亡，失得勿恤，往吉無不利。", "modern": "後悔消失，不要計較眼前的得失。勇往直前，吉利且無所不利。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "晉其角，維用伐邑，厲吉無咎，貞吝。", "modern": "晉升到了頂點（如獸角）。只能用來討伐整頓自己的屬地，雖險但無咎，然堅守此道則有憾。" }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "明夷",
+    "full_name": "地火明夷",
+    "binary": "101000",
+    "trigrams": { "upper": "坤", "lower": "離" },
+    "five_elements": "水",
+    "judgment": "明夷，利艱貞。",
+    "judgment_modern": "光明受阻，黑暗降臨。處於艱難困苦之中，宜內斂韜光養晦，堅守底線。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "明夷于飛，垂其翼。君子于行，三日不食。有攸往，主人有言。", "modern": "光明受阻而退避，如同鳥兒低垂翅膀。初期逃難或創業受挫，備嘗艱辛，不宜急進。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "明夷，夷于左股，用拯馬壯，吉。", "modern": "雖然受到挫折（傷了左腿），但若能借助強大的外力（壯馬）協助，最終能化險為夷，吉利。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "明夷于南狩，得其大首，不可疾貞。", "modern": "向南方出擊，捕獲了敵人的首領。但不可操之過急，需步步為營。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "入于左腹，獲明夷之心，于出門庭。", "modern": "深入核心，了解了問題的癥結點與暗黑勢力的內心，從而避開災禍遠走高飛。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "箕子之明夷，利貞。", "modern": "如箕子般裝瘋賣傻以自保，在極度困難中堅守正道，隱藏鋒芒，有利。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "不明晦，初登于天，後入于地。", "modern": "黑暗到了極點。最初看似高高在上不可一世，最終卻墜入深淵。暗示晚年需謹慎。" }
+    ]
+  },
+{
+    "id": 37,
+    "name": "家人",
+    "full_name": "風火家人",
+    "binary": "101011",
+    "trigrams": { "upper": "巽", "lower": "離" },
+    "five_elements": "木",
+    "judgment": "家人，利女貞。",
+    "judgment_modern": "齊家治國，家庭和睦。男主外女主內，各盡其責，以家庭為重則萬事興。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "閑有家，悔亡。", "modern": "防患於未然，一開始就建立嚴格的家規或規範，便沒有後悔。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "無攸遂，在中饋，貞吉。", "modern": "不自作主張，安分守己地專注於內部事務（如掌理家務飲食），堅守正道則吉。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "家人嗃嗃，悔厲吉；婦子嘻嘻，終吝。", "modern": "治家嚴厲雖有些懊悔與嚴苛，但最終吉利。若過度縱容致使家人嬉鬧無度，終將招致遺憾。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "富家，大吉。", "modern": "勤儉持家，使家庭財富充裕，大吉大利。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "王假有家，勿恤，吉。", "modern": "一家之主以誠信與德行感化家人，不需過度憂慮擔心，自然家和萬事興，吉。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "有孚威如，終吉。", "modern": "領導者秉持誠信並具備威嚴，恩威並施，最終大吉。" }
+    ]
+  },
+  {
+    "id": 38,
+    "name": "睽",
+    "full_name": "火澤睽",
+    "binary": "110101",
+    "trigrams": { "upper": "離", "lower": "兌" },
+    "five_elements": "土",
+    "judgment": "睽，小事吉。",
+    "judgment_modern": "背道而馳，意見分歧。人心不和，難成大事，僅適宜處理微小的事務。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "悔亡，喪馬勿逐，自復。見惡人無咎。", "modern": "跑掉的馬不必去追，自然會回來。在對立中若能委曲求全去見政敵，可免災咎。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "遇主于巷，無咎。", "modern": "在狹巷中與君主（或上司）不期而遇。打破隔閡，主動溝通，無咎。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "見輿曳，其牛掣，其人天且劓。無初有終。", "modern": "車子被拉扯，牛被牽制，人受刑罰。處境極度困難委屈，但熬過初期，終有好結果。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "睽孤，遇元夫，交孚，厲無咎。", "modern": "在孤立無援的對立中，遇到志同道合的強者，彼此以誠信相待，雖危險但無災。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "悔亡，厥宗噬膚，往何咎。", "modern": "宗族親人如咬軟肉般輕易地消除了彼此的隔閡，此時前行有何過錯？" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "睽孤，見豕負塗，載鬼一車，先張之弧，後說之弧。匪寇婚媾，往遇雨則吉。", "modern": "因疑神疑鬼而看見豬沾滿泥巴、甚至看到一車鬼。本想拔箭射擊，後發現不是敵人而是求親者，冰釋前嫌（遇雨），最終吉利。" }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "蹇",
+    "full_name": "水山蹇",
+    "binary": "001010",
+    "trigrams": { "upper": "坎", "lower": "艮" },
+    "five_elements": "金",
+    "judgment": "蹇，利西南，不利東北。利見大人，貞吉。",
+    "judgment_modern": "寸步難行，進退維谷。遇險應止步反省，宜向西南求援，尋找貴人相助。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "往蹇，來譽。", "modern": "前進會遇到困難阻礙，退守反而會獲得讚譽。宜知難而退。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "王臣蹇蹇，匪躬之故。", "modern": "臣子為君王陷入重重困境，並非為了自身的私利，而是盡忠職守。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "往蹇，來反。", "modern": "前進有難，不如退回來與親友團聚，以圖後計。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "往蹇，來連。", "modern": "前行遇險，退守則能與志同道合者聯合，積蓄力量。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "大蹇，朋來。", "modern": "身陷極大的困境中，所幸有眾多朋友與貴人前來相助，得以脫險。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "往蹇，來碩，吉。利見大人。", "modern": "前進有險，退守則大有收穫，吉利。此時利於拜見有德行權威的大人物。" }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "解",
+    "full_name": "雷水解",
+    "binary": "010100",
+    "trigrams": { "upper": "震", "lower": "坎" },
+    "five_elements": "木",
+    "judgment": "解，利西南。無所往，其來復吉。有攸往，夙吉。",
+    "judgment_modern": "冰雪消融，危機解除。困難化解後宜休養生息，若有未竟之事應速戰速決。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "無咎。", "modern": "危機剛剛解除，局勢平靜，沒有災難與過錯。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "田獲三狐，得黃矢，貞吉。", "modern": "狩獵捕獲三隻狡猾的狐狸（排除小人），並獲得象徵中庸直道的黃色箭頭，堅守正道則吉。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "負且乘，致寇至，貞吝。", "modern": "背負重物卻乘坐華麗的車子（德不配位），必會招惹強盜劫掠，即使動機純正也免不了遺憾。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "解而拇，朋至斯孚。", "modern": "捨棄掉如同腳趾般牽絆自己的小人，志同道合的朋友才會真誠相聚。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "君子維有解，吉。有孚于小人。", "modern": "君子果斷與小人劃清界線、解除關係，吉利。如此才能讓小人信服並知難而退。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "公用射隼于高墉之上，獲之，無不利。", "modern": "王公在高牆之上射殺猛禽（徹底清除高層的禍患），一舉命中，無所不利。" }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "損",
+    "full_name": "山澤損",
+    "binary": "110001",
+    "trigrams": { "upper": "艮", "lower": "兌" },
+    "five_elements": "土",
+    "judgment": "損，有孚，元吉，無咎，可貞，利有攸往。曷之用，二簋可用享。",
+    "judgment_modern": "損己利人，先付出後收穫。以誠心奉獻，雖表面受損，最終將獲大吉。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "已事遄往，無咎。酌損之。", "modern": "放下自己的私事，迅速前往協助他人，無咎。但應斟酌自身的負擔能力，適度付出。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "利貞，征凶，弗損益之。", "modern": "利於堅守本分，盲目冒進則凶。在不損害自己的前提下，去增益他人。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "三人行，則損一人；一人行，則得其友。", "modern": "三人同行容易產生意見分歧而損減一人，一人獨行反而能遇到志同道合的朋友。象徵專一則得益。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "損其疾，使遄有喜，無咎。", "modern": "迅速減損自身的缺點與毛病，如此便會有喜慶降臨，無咎。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "或益之，十朋之龜弗克違，元吉。", "modern": "有人來增益他，連價值昂貴的神龜都無法違背這大好的運勢。大吉大利。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "弗損益之，無咎，貞吉。利有攸往，得臣無家。", "modern": "不用損己便能增益天下，無咎且堅守正道則吉。利於前進，獲得賢臣的輔佐，大公無私。" }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "益",
+    "full_name": "風雷益",
+    "binary": "100011",
+    "trigrams": { "upper": "巽", "lower": "震" },
+    "five_elements": "木",
+    "judgment": "益，利有攸往，利涉大川。",
+    "judgment_modern": "損上益下，大獲利益。運勢強盛，得人相助，利於積極開創與投資。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "利用為大作，元吉，無咎。", "modern": "正是運勢大好之時，利於興辦大事業，大吉大利，沒有過錯。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "或益之，十朋之龜弗克違，永貞吉。王用享于帝，吉。", "modern": "獲天降大福，神龜都無法改變此好運。長久堅守正道吉，君王以此虔誠祭天大吉。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "益之用凶事，無咎。有孚中行，告公用圭。", "modern": "在困難凶險之時給予增益救助，沒有災咎。秉持誠信與中道行事，如手持玉圭般莊重。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "中行，告公從。利用為依遷國。", "modern": "秉持中道行事，上報王公必獲依從。利於作為依靠，甚至進行遷都這樣的大工程。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "有孚惠心，勿問元吉。有孚惠我德。", "modern": "懷有真誠的仁惠之心去造福眾人，不用問便知是大吉。眾人也必以誠信回報其恩德。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "莫益之，或擊之。立心勿恆，凶。", "modern": "貪得無厭不再造福他人，不僅無人幫助，還可能遭受攻擊。內心不堅定恆常，必凶。" }
+    ]
+  },
+  {
+    "id": 43,
+    "name": "夬",
+    "full_name": "澤天夬",
+    "binary": "111110",
+    "trigrams": { "upper": "兌", "lower": "乾" },
+    "five_elements": "土",
+    "judgment": "夬，揚于王庭，孚號，有厲，告自邑，不利即戎，利有攸往。",
+    "judgment_modern": "決斷破除，清除小人。須光明正大且果斷行動，但不宜動用武力，平和解決為佳。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "壯于前趾，往不勝為咎。", "modern": "力量僅在腳趾就急於前進，尚未蓄積足夠實力，若不勝必招致過錯。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "惕號，莫夜有戎，勿恤。", "modern": "隨時保持警惕並呼喊防備，即使深夜遇到兵賊突襲，也不必憂慮。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "壯于頄，有凶。君子夬夬，獨行遇雨，若濡有慍，無咎。", "modern": "忿怒之情溢於言表（臉上），有凶險。君子果斷獨行，被雨淋濕雖有怨言，但最終無咎。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "臀無膚，其行次且。牽羊悔亡，聞言不信。", "modern": "臀部受傷，行走困難。若能如牽羊般順勢而為則後悔消失，但忠言逆耳，難以聽信。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "莧陸夬夬，中行無咎。", "modern": "像剷除雜草般果斷堅決地清除小人，秉持中庸之道行事，沒有過錯。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "無號，終有凶。", "modern": "孤立無援，即使呼號也無人理會，最終必然凶險。" }
+    ]
+  },
+  {
+    "id": 44,
+    "name": "姤",
+    "full_name": "天風姤",
+    "binary": "011111",
+    "trigrams": { "upper": "乾", "lower": "巽" },
+    "five_elements": "金",
+    "judgment": "姤，女壯，勿用取女。",
+    "judgment_modern": "不期而遇，陰長陽消。危機潛伏，不良因素逐漸壯大，防範小人或爛桃花。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "繫于金柅，貞吉，有攸往，見凶。羸豕孚蹢躅。", "modern": "用金屬煞車器將車鎖住（將不良苗頭扼殺），堅守則吉。若任其發展必凶，如瘦弱母豬仍不斷躁動。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "包有魚，無咎，不利賓。", "modern": "廚房裡包著魚（掌握了主導權），沒有過錯。但不宜將魚宴請賓客（不宜張揚放縱小人）。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "臀無膚，其行次且，厲，無大咎。", "modern": "臀部受傷，行走艱難。雖然處境艱難危險，但因未能與小人苟合，故無大錯。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "包無魚，起凶。", "modern": "廚房裡的魚不見了（失去了防備與控制權），禍起蕭牆，凶險。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "以杞包瓜，含章，有隕自天。", "modern": "用杞樹葉包住甜瓜（以大包容小），內藏文采美德。福氣將如天降般來到。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "姤其角，吝，無咎。", "modern": "高高在上如獸角般孤芳自賞，與人難以相遇溝通。雖有遺憾，但免於被小人牽連，無咎。" }
+    ]
+  },
+{
+    "id": 45,
+    "name": "萃",
+    "full_name": "澤地萃",
+    "binary": "000110",
+    "trigrams": { "upper": "兌", "lower": "坤" },
+    "five_elements": "金",
+    "judgment": "萃，亨。王假有廟，利見大人，亨，利貞。用大大牲吉，利有攸往。",
+    "judgment_modern": "薈萃聚集，人才濟濟。利於團隊合作與資源整合，尋求大人物支持大吉。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "有孚不終，乃亂乃萃，若號，一握為笑，勿恤，往無咎。", "modern": "誠信未能堅持到底，導致眾人紛亂。若能呼籲大家團結，相視一笑泯恩仇，前進便無災。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "引吉，無咎，孚乃利用禴。", "modern": "互相牽引而來，吉利無災。只要心懷誠信，即使微薄的祭品（禴祭）也能感動神明與眾人。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "萃如，嗟如，無攸利，往無咎，小吝。", "modern": "想與眾人聚集卻遭受排擠而嗟嘆，無利可圖。但若堅持前行投靠正道，雖有遺憾但無大錯。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "大吉，無咎。", "modern": "身居高位而能廣納賢才，大吉大利，沒有過錯。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "萃有位，無咎。匪孚，元永貞，悔亡。", "modern": "身居尊位而能號召眾人，無災。若有不信服者，只要長久堅守正道與高尚品德，後悔自會消失。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "齎咨涕洟，無咎。", "modern": "位高而孤立無援，不禁悲嘆流淚。但正因為這份擔憂與警惕，反能免除災咎。" }
+    ]
+  },
+  {
+    "id": 46,
+    "name": "升",
+    "full_name": "地風升",
+    "binary": "011000",
+    "trigrams": { "upper": "坤", "lower": "巽" },
+    "five_elements": "木",
+    "judgment": "升，元亨，用見大人，勿恤，南征吉。",
+    "judgment_modern": "步步高升，順勢而上。積小成大，運勢平穩上升，向南發展大吉。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "允升，大吉。", "modern": "獲得上級的信任與提拔而順利高升，大吉大利。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "孚乃利用禴，無咎。", "modern": "以誠信之心相待，即使是不豐盛的祭品（禴祭）也能獲福，無災咎。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "升虛邑。", "modern": "如進入無人之境般順利升遷，毫無阻礙。象徵時機大好，勢如破竹。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "王用亨于岐山，吉無咎。", "modern": "君王在岐山誠心祭祀神明。象徵順應天命、得道多助，吉利而無災。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "貞吉，升階。", "modern": "堅守正道則吉，如登階梯般按部就班、平穩地上升。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "冥升，利于不息之貞。", "modern": "昏昧盲目地追求升遷。此時唯有利於堅持不懈地守持正道，方能轉危為安。" }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "困",
+    "full_name": "澤水困",
+    "binary": "010110",
+    "trigrams": { "upper": "兌", "lower": "坎" },
+    "five_elements": "金",
+    "judgment": "困，亨，貞，大人吉，無咎，有言不信。",
+    "judgment_modern": "陷入窮困，才華受壓。處境艱難時更要堅守志向，言語難以服人，唯有行動。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "臀困于株木，入于幽谷，三歲不覿。", "modern": "坐困於枯木之上，如同深陷幽谷，三年不見天日。處境極度困厄盲目。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "困于酒食，朱紱方來，利用亨祀，征凶，無咎。", "modern": "酒食富足卻受困於職責。高官厚祿將至，此時宜以誠心祭祀，忌主動出擊，防守則無咎。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "困于石，據于蒺藜，入于其宮，不見其妻，凶。", "modern": "前遇頑石阻擋，退坐於荊棘之上。進退維谷，回到家中連妻子都不見，家破人亡之凶象。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "來徐徐，困于金車，吝，有終。", "modern": "救援來得遲緩，受困於金銀等利益牽絆。過程雖有遺憾，但最終仍可脫困。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "劓刖，困于赤紱，乃徐有說，利用祭祀。", "modern": "遭受酷刑（割鼻斷足），受困於高官的權力鬥爭。唯有耐心等待方能脫困，宜虔誠祈求。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "困于葛藟，于臲卼，曰動悔。有悔，征吉。", "modern": "被藤蔓纏繞，處境危殆，動輒得咎。但若能徹底悔悟並奮力突破，向前邁進則吉。" }
+    ]
+  },
+  {
+    "id": 48,
+    "name": "井",
+    "full_name": "水風井",
+    "binary": "011010",
+    "trigrams": { "upper": "坎", "lower": "巽" },
+    "five_elements": "木",
+    "judgment": "井，改邑不改井，無喪無得，往來井井。汔至，亦未繘井，羸其瓶，凶。",
+    "judgment_modern": "源源不絕，固本培元。象徵本分與根本不可動搖，若功虧一簣（打破水瓶）則凶。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "井泥不食，舊井無禽。", "modern": "井底淤泥混濁無法飲用，廢棄的老井連鳥獸都不來。象徵基礎敗壞，無人問津。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "井谷射鮒，甕敝漏。", "modern": "井水淺得只能射小魚，打水的甕又破漏。象徵有才卻無法施展，工具或方法不當。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "井渫不食，為我心惻，可用汲，王明，並受其福。", "modern": "井水已經淘乾淨卻無人飲用，令人心痛。若遇明君取用，則眾人皆能蒙受其福。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "井甃，無咎。", "modern": "正在用磚石修繕井壁。雖然暫時無法供水，但修好後有利長遠，沒有過錯。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "井冽，寒泉食。", "modern": "井水清澈甘甜，如清冽的泉水般供人飲用。象徵才德兼備，大受歡迎與重用。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "井收勿幕，有孚元吉。", "modern": "水井修成且不加蓋子，任由大家取用。抱持著誠信與無私奉獻的心，大吉大利。" }
+    ]
+  },
+  {
+    "id": 49,
+    "name": "革",
+    "full_name": "澤火革",
+    "binary": "101110",
+    "trigrams": { "upper": "兌", "lower": "離" },
+    "five_elements": "水",
+    "judgment": "革，己日乃孚，元亨利貞，悔亡。",
+    "judgment_modern": "破舊立新，變革轉型。時機成熟時進行改革，必能獲得信任與成功。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "鞏用黃牛之革。", "modern": "用黃牛皮牢牢綁住。象徵改革初期時機未熟，應堅固防守，不可輕舉妄動。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "己日乃革之，征吉，無咎。", "modern": "到了適當的時機（己日）才推行變革，向前邁進必吉，沒有災咎。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "征凶，貞厲。革言三就，有孚。", "modern": "貿然前進有凶險。改革的言論經過三次審慎的討論與驗證，取得眾人信任後才可實行。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "悔亡，有孚改命，吉。", "modern": "後悔消失。以誠信去推動舊制度的改變與革新，順應天命與民意，吉利。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "大人虎變，未占有孚。", "modern": "大人物推動改革，如老虎換毛般煥然一新且威嚴。不用占卜也能確信會獲大眾信任。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "君子豹變，小人革面，征凶，居貞吉。", "modern": "君子如豹子換毛般徹底改變，小人雖僅表面順從，但大局已定。此時宜守成，再強推必凶。" }
+    ]
+  },
+  {
+    "id": 50,
+    "name": "鼎",
+    "full_name": "火風鼎",
+    "binary": "011101",
+    "trigrams": { "upper": "離", "lower": "巽" },
+    "five_elements": "火",
+    "judgment": "鼎，元吉，亨。",
+    "judgment_modern": "去舊佈新，鼎立穩固。象徵權力與地位的建立，合作無間，大吉大利。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "鼎顛趾，利出否，得妾以其子，無咎。", "modern": "把鼎倒過來倒出殘渣，去舊佈新。如同納妾是為了得子延續後代，變通之舉無咎。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "鼎有實，我仇有疾，不我能即，吉。", "modern": "鼎中裝滿食物（實力充沛），忌妒我的人有心病卻無法靠近傷害我，吉利。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "鼎耳革，其行塞，雉膏不食，方雨虧悔，終吉。", "modern": "鼎耳脫落無法搬動，有美食（雉雞肉）也吃不到。雖過程受阻鬱悶，但終能逢雨化解，吉。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "鼎折足，覆公餗，其形渥，凶。", "modern": "鼎腳折斷，打翻了王公的美味佳餚，弄得滿身污汁。象徵德不配位、不勝負荷，凶險。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "鼎黃耳金鉉，利貞。", "modern": "鼎裝上了黃色的銅耳與金屬扛把（象徵任用賢才與堅固中庸）。堅守正道有利。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "鼎玉鉉，大吉，無不利。", "modern": "鼎裝上了如玉般溫潤的扛把（剛柔並濟，德行高尚），大吉大利，無所不利。" }
+    ]
+  },
+  {
+    "id": 51,
+    "name": "震",
+    "full_name": "震為雷",
+    "binary": "100100",
+    "trigrams": { "upper": "震", "lower": "震" },
+    "five_elements": "木",
+    "judgment": "震，亨。震來虩虩，笑言啞啞。震驚百里，不喪匕鬯。",
+    "judgment_modern": "震驚變動，臨危不亂。面臨突發變故，若能處變不驚，從容應對，終可保平安。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "震來虩虩，後笑言啞啞，吉。", "modern": "雷聲乍響時心中恐懼警惕，過後便能安然談笑，逢凶化吉。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "震來厲，億喪貝，躋于九陵，勿逐，七日得。", "modern": "大震來臨有危險，喪失大量財富。應退避到高山上，不要去追尋財物，七日後自然會失而復得。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "震蘇蘇，震行無眚。", "modern": "被雷霆震得驚慌失措。若能因為恐懼而謹慎前行，便可免於災難。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "震遂泥。", "modern": "震動中陷入泥濘，無法自拔。象徵面臨變故時猶豫不決，錯失良機而陷入困境。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "震往來厲，億無喪，有事。", "modern": "無論進退皆有危險的震動。唯有堅守中道不失大局，專心處理核心事務，方能保全。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "震索索，視矍矍，征凶。震不于其躬，于其鄰，無咎。婚媾有言。", "modern": "震驚得瑟瑟發抖，目光游移不定，此時前行必凶。災禍尚未臨身而發生在鄰居時就應警惕，免遭牽連。" }
+    ]
+  },
+  {
+    "id": 52,
+    "name": "艮",
+    "full_name": "艮為山",
+    "binary": "001001",
+    "trigrams": { "upper": "艮", "lower": "艮" },
+    "five_elements": "土",
+    "judgment": "艮其背，不獲其身，行其庭，不見其人，無咎。",
+    "judgment_modern": "適時停止，靜如泰山。該止則止，不受外物誘惑，保持內心寧靜則無災。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "艮其趾，無咎，利永貞。", "modern": "在腳趾剛要邁出時便停下來（防微杜漸）。沒有過錯，利於長久堅守正道。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "艮其腓，不拯其隨，其心不快。", "modern": "想要停住小腿，卻無法阻止身體跟著前進。心有餘而力不足，心中不快。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "艮其限，列其夤，厲熏心。", "modern": "強行停止在腰部，像撕裂脊背上的肉般痛苦。壓抑過度，危險與焦慮熏灼內心。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "艮其身，無咎。", "modern": "克制並停止自身的妄動，安分守己，沒有過錯。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "艮其輔，言有序，悔亡。", "modern": "停住口頰（謹言慎行）。說話有條理分寸，後悔自然消失。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "敦艮，吉。", "modern": "以敦厚誠懇的心達到「止」的最高境界，不妄動不貪求，大吉。" }
+    ]
+  },
+{
+    "id": 53,
+    "name": "漸",
+    "full_name": "風山漸",
+    "binary": "001011",
+    "trigrams": { "upper": "巽", "lower": "艮" },
+    "five_elements": "土",
+    "judgment": "漸，女歸吉，利貞。",
+    "judgment_modern": "循序漸進，水到渠成。如女子出嫁般依循禮節，不可急躁，慢慢發展為吉。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "鴻漸于干，小子厲，有言，無咎。", "modern": "大雁剛飛到水涯邊。資淺者在前進初期感到危險，雖有怨言，但步步為營可無災咎。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "鴻漸于磐，飲食衎衎，吉。", "modern": "大雁飛到平坦安穩的磐石上，安心地飲食歡樂，吉利。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "鴻漸于陸，夫征不復，婦孕不育，凶，利禦寇。", "modern": "大雁飛到旱地上。丈夫出征不歸，妻子懷孕卻無法順產。急進必凶，只能防守抵禦外敵。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "鴻漸于木，或得其桷，無咎。", "modern": "大雁飛到樹上，勉強找到平坦的樹枝棲息。雖不完全適合，但能隨遇而安，無過錯。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "鴻漸于陵，婦三歲不孕，終莫之勝，吉。", "modern": "大雁飛到高丘上。雖如婦女三年不孕般久久不見成效，但最終無人能阻擋其成功，吉利。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "鴻漸于陸，其羽可用為儀，吉。", "modern": "大雁飛至高空（或高地），其羽毛美麗可作為儀式的裝飾。功成名就，為人表率，吉。" }
+    ]
+  },
+  {
+    "id": 54,
+    "name": "歸妹",
+    "full_name": "雷澤歸妹",
+    "binary": "110100",
+    "trigrams": { "upper": "震", "lower": "兌" },
+    "five_elements": "金",
+    "judgment": "歸妹，征凶，無攸利。",
+    "judgment_modern": "違背常理，衝動結合。感情或合作關係建立在錯誤基礎上，輕舉妄動必凶。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "歸妹以娣，跛能履，征吉。", "modern": "作為陪嫁的妹妹出嫁，如跛腳勉強行走。安分守己處於偏房（次要地位），向前邁進吉利。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "眇能視，利幽人之貞。", "modern": "單眼視物（看不清全貌）。配偶不佳或合作條件不好，利於像隱士般堅守正道以自保。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "歸妹以須，反歸以娣。", "modern": "求正室之位不成，反退求為妾。貪慕虛榮、妄求名分，終難如願。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "歸妹愆期，遲歸有時。", "modern": "錯過出嫁的婚期，遲遲未嫁。不輕率結合，寧缺勿濫，等待適當時機。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "帝乙歸妹，其君之袂，不如其娣之袂良，月幾望，吉。", "modern": "帝乙嫁妹，正室的服飾反不如陪嫁的華麗。不重虛榮，如滿月將虧般守中庸，吉利。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "女承筐無實，士刲羊無血，無攸利。", "modern": "女方捧的竹筐空無一物，男方宰羊卻不見血。名存實亡的虛假結合，毫無利益可言。" }
+    ]
+  },
+  {
+    "id": 55,
+    "name": "豐",
+    "full_name": "雷火豐",
+    "binary": "101100",
+    "trigrams": { "upper": "震", "lower": "離" },
+    "five_elements": "水",
+    "judgment": "豐，亨，王假之，勿憂，宜日中。",
+    "judgment_modern": "豐盛碩大，如日中天。事業達到巔峰，但應防盛極而衰，保持光明坦蕩。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "遇其配主，雖旬無咎，往有尚。", "modern": "遇到志同道合的夥伴，即使相處十天也不會有過錯。前進會受到讚賞。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "豐其蔀，日中見斗，往得疑疾，有孚發若，吉。", "modern": "被厚重的遮蔽物擋住，正午猶如黑夜見到星斗。貿然前進會遭猜忌，唯有以誠信啟發對方，方吉。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "豐其沛，日中見沬，折其右肱，無咎。", "modern": "如正午時雲霧蔽日。右臂折斷（失去得力助手），雖無力回天，但並非自身過錯，無咎。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "豐其蔀，日中見斗，遇其夷主，吉。", "modern": "黑暗蒙蔽之中，幸好遇到能互相理解的同等位階之主（平等的貴人）相助，吉利。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "來章，有慶譽，吉。", "modern": "招攬賢才與光明的力量前來，將獲得喜慶與讚譽，大吉。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "豐其屋，蔀其家，闚其戶，闃其無人，三歲不覿，凶。", "modern": "房屋高大華麗，卻門窗緊閉、空無一人，三年不見人影。過度追求物質而自絕於人，大凶。" }
+    ]
+  },
+  {
+    "id": 56,
+    "name": "旅",
+    "full_name": "火山旅",
+    "binary": "001101",
+    "trigrams": { "upper": "離", "lower": "艮" },
+    "five_elements": "火",
+    "judgment": "旅，小亨，旅貞吉。",
+    "judgment_modern": "顛沛流離，寄人籬下。在外奔波不穩定，宜低調行事，安分守己方能小吉。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "旅瑣瑣，斯其所取災。", "modern": "旅途中心胸狹隘、斤斤計較，這正是招致災難的原因。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "旅即次，懷其資，得童僕貞。", "modern": "旅途中住進安穩的客棧，身上帶著足夠的錢財，又得到忠誠僕人的服侍，安穩吉利。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "旅焚其次，喪其童僕，貞厲。", "modern": "旅途中客棧失火，又失去了僕人。客死他鄉之象，處境極度危險。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "旅于處，得其資斧，我心不快。", "modern": "雖然在旅途中暫得安居之所，也獲得了錢財與工具，但寄人籬下，內心始終不快。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "射雉一矢亡，終以譽命。", "modern": "射野雞損失了一支箭，但最終獲得了野雞。象徵在外結交權貴，先付出代價，終獲聲譽與爵位。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "鳥焚其巢，旅人先笑後號咷。喪牛于易，凶。", "modern": "如鳥的巢穴被焚毀。旅人先是得意忘形，後則痛哭流涕。喪失了順從的美德（喪牛），必有大凶。" }
+    ]
+  },
+  {
+    "id": 57,
+    "name": "巽",
+    "full_name": "巽為風",
+    "binary": "011011",
+    "trigrams": { "upper": "巽", "lower": "巽" },
+    "five_elements": "木",
+    "judgment": "巽，小亨，利有攸往，利見大人。",
+    "judgment_modern": "柔順滲透，無孔不入。態度謙和順從，利於依附強者或尋求貴人協助。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "進退，利武人之貞。", "modern": "猶豫不決，進退失據。此時利於像武士般果斷堅決地採取行動。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "巽在床下，用史巫紛若，吉無咎。", "modern": "過度謙卑至伏於床下。此時用史官、巫師反覆溝通祈禱般誠懇交涉，吉而無災。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "頻巽，吝。", "modern": "頻繁地表現順從，流於諂媚而缺乏原則，會招致羞辱與遺憾。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "悔亡，田獲三品。", "modern": "後悔消失。打獵獲得三種獵物（大豐收），柔順得宜，名利雙收。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "貞吉悔亡，無不利。無初有終，先庚三日，後庚三日，吉。", "modern": "堅守正道，無所不利。即使開局不佳也能善終。像頒布命令般慎重（事前事後三日考核），吉。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "巽在床下，喪其資斧，貞凶。", "modern": "過度謙卑退縮以至於喪失了決斷的工具（資斧）與勇氣，即使動機純正也必凶險。" }
+    ]
+  },
+  {
+    "id": 58,
+    "name": "兌",
+    "full_name": "兌為澤",
+    "binary": "110110",
+    "trigrams": { "upper": "兌", "lower": "兌" },
+    "five_elements": "金",
+    "judgment": "兌，亨，利貞。",
+    "judgment_modern": "喜悅溝通，和樂融融。以言語使人喜悅，利於公關交際，但需心存正道。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "和兌，吉。", "modern": "內心平和且真誠地與人相悅，不帶功利目的，吉利。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "孚兌，吉，悔亡。", "modern": "以誠信與人交流溝通，吉利，不會有任何後悔與過錯。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "來兌，凶。", "modern": "心懷不軌，曲意逢迎來討好別人，必有凶險。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "商兌未寧，介疾有喜。", "modern": "在選擇正邪、喜悅之間猶豫不決。若能與邪惡的小人劃清界線，則有喜慶。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "孚于剝，有厲。", "modern": "錯信了正在剝奪你的人事物（小人），處境潛藏危險。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "引兌。", "modern": "引誘別人一起沉淪於過度的享樂之中，缺乏主見而隨波逐流。" }
+    ]
+  },
+  {
+    "id": 59,
+    "name": "渙",
+    "full_name": "風水渙",
+    "binary": "010011",
+    "trigrams": { "upper": "巽", "lower": "坎" },
+    "five_elements": "火",
+    "judgment": "渙，亨。王假有廟，利涉大川，利貞。",
+    "judgment_modern": "渙散消解，乘風破浪。打破僵局，化解危機，利於聚攏人心或遠行發展。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "用拯馬壯，吉。", "modern": "在危機渙散的初期，借助強壯的馬（強大外力）來拯救局勢，吉利。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "渙其機，悔亡。", "modern": "局勢渙散時，趕緊奔向安全的幾案（尋求可靠的避難所或依靠），後悔消失。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "渙其躬，無悔。", "modern": "為了大局消解一己之私，即使自我犧牲也無怨無悔。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "渙其群，元吉。渙有丘，匪夷所思。", "modern": "解散小圈子、化解群體的私利，大吉。能將渙散的群眾重新聚集成山丘般的大勢力，令人匪夷所思。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "渙汗其大號，渙王居，無咎。", "modern": "發布號令如流汗般不可收回（言出必行），君王親自化解危機，沒有災咎。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "渙其血，去逖出，無咎。", "modern": "化解了流血衝突的危機，遠離了恐懼與災禍，平安無咎。" }
+    ]
+  },
+  {
+    "id": 60,
+    "name": "節",
+    "full_name": "水澤節",
+    "binary": "110010",
+    "trigrams": { "upper": "坎", "lower": "兌" },
+    "five_elements": "水",
+    "judgment": "節，亨。苦節，不可貞。",
+    "judgment_modern": "節制約束，適可而止。懂得分寸則亨通，但過度苛刻壓抑（苦節）則不可行。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "不出戶庭，無咎。", "modern": "知曉時機未到，節制自己的行為不出門庭，免於過錯。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "不出門庭，凶。", "modern": "時機已至卻過度節制保守，不敢跨出大門，錯失良機必凶。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "不節若，則嗟若，無咎。", "modern": "該節制時不節制，必然導致後悔嘆息。這是咎由自取，怪不得別人。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "安節，亨。", "modern": "自然安適地遵守節制與規範，不感到勉強，亨通順暢。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "甘節，吉，往有尚。", "modern": "以甘美的態度來推行節制，使人心悅誠服地接受。前進將獲得尊崇，吉利。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "苦節，貞凶，悔亡。", "modern": "過度嚴苛、令人痛苦的節制。堅守此道必凶險，若能及時悔改則可免災。" }
+    ]
+  },
+  {
+    "id": 61,
+    "name": "中孚",
+    "full_name": "風澤中孚",
+    "binary": "110011",
+    "trigrams": { "upper": "巽", "lower": "兌" },
+    "five_elements": "土",
+    "judgment": "中孚，豚魚吉，利涉大川，利貞。",
+    "judgment_modern": "誠信相感，內心篤實。至誠可以感動頑劣（連豬魚都能感動），利於渡過難關。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "虞吉，有它不燕。", "modern": "誠信專一則吉。若有其他雜念或見異思遷，便會失去安寧。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "鳴鶴在陰，其子和之。我有好爵，吾與爾靡之。", "modern": "母鶴在暗處鳴叫，小鶴便會回應（精誠所至）。我有好酒好爵，願與你共享。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "得敵，或鼓或罷，或泣或歌。", "modern": "遇見強敵（或不誠信之人）。情緒失控，時而擊鼓時而疲憊，時而哭泣時而高歌。象徵失去內在的篤定。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "月幾望，馬匹亡，無咎。", "modern": "如滿月將虧般保持謙遜（臣道），捨棄私人的小團體以盡忠上位，無災咎。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "有孚攣如，無咎。", "modern": "以強大的誠信力量將眾人緊密地團結在一起，無過錯。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "翰音登于天，貞凶。", "modern": "如公雞高鳴試圖飛上天（虛張聲勢）。空有虛名而無誠信實力，堅守必凶。" }
+    ]
+  },
+  {
+    "id": 62,
+    "name": "小過",
+    "full_name": "雷山小過",
+    "binary": "001100",
+    "trigrams": { "upper": "震", "lower": "艮" },
+    "five_elements": "金",
+    "judgment": "小過，亨，利貞。可小事，不可大事。飛鳥遺之音，不宜上，宜下，大吉。",
+    "judgment_modern": "稍有逾越，小題大作。僅宜處理小事，切忌好高騖遠，低調退守為吉。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "飛鳥以凶。", "modern": "羽翼未豐就妄想如飛鳥般高飛，好高騖遠，必然招致凶險。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "過其祖，遇其妣，不及其君，遇其臣，無咎。", "modern": "越過祖父遇見祖母，越級求見國君卻只見到大臣。象徵退而求其次、安分守己則無災。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "弗過防之，從或戕之，凶。", "modern": "自恃剛強而不願稍作退讓防備，終會被人暗算戕害，凶險。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "無咎，弗過遇之。往厲必戒，勿用永貞。", "modern": "不過分剛強而能隨和應對，無災。前進有危險必須戒備，不可固執到底。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "密雲不雨，自我西郊。公弋取彼在穴。", "modern": "密雲不雨，時機尚未成熟。只能用弋射抓取洞穴裡的獵物。象徵只能成小事，無法成大事。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "弗遇過之，飛鳥離之，凶，是謂災眚。", "modern": "不僅沒有退讓，反而過度妄動。如飛鳥飛得太高而遭遇羅網，此為天災人禍，大凶。" }
+    ]
+  },
+  {
+    "id": 63,
+    "name": "既濟",
+    "full_name": "水火既濟",
+    "binary": "101010",
+    "trigrams": { "upper": "坎", "lower": "離" },
+    "five_elements": "水",
+    "judgment": "既濟，亨，小利貞，初吉終亂。",
+    "judgment_modern": "大功告成，水火相交。事情已達完美狀態，但需防範怠惰，若不守成則最終必亂。",
+    "lines": [
+      { "position": 1, "name": "初九", "is_yang": true, "text": "曳其輪，濡其尾，無咎。", "modern": "拉住車輪減速，小狐狸過河弄濕尾巴。成功之初保持謹慎與克制，無災咎。" },
+      { "position": 2, "name": "六二", "is_yang": false, "text": "婦喪其茀，勿逐，七日得。", "modern": "婦人遺失了車上的華麗帷幕。不要去追尋，七天後自然會找回來。象徵不必強求外在虛榮。" },
+      { "position": 3, "name": "九三", "is_yang": true, "text": "高宗伐鬼方，三年克之，小人勿用。", "modern": "殷高宗討伐鬼方國，歷時三年才戰勝。艱難守成之時，切勿重用小人。" },
+      { "position": 4, "name": "六四", "is_yang": false, "text": "繻有衣袽，終日戒。", "modern": "船有破洞就要用舊衣服塞住漏水。即使在安居樂業之時，也要整日保持警惕防患未然。" },
+      { "position": 5, "name": "九五", "is_yang": true, "text": "東鄰殺牛，不如西鄰之禴祭，實受其福。", "modern": "東鄰殺牛大祭，反不如西鄰用微薄祭品虔誠祭祀來得有福。象徵誠心勝過奢華。" },
+      { "position": 6, "name": "上六", "is_yang": false, "text": "濡其首，厲。", "modern": "過河時水淹沒了頭頂。功成名就後過於安逸驕傲，陷入滅頂的危險之中。" }
+    ]
+  },
+  {
+    "id": 64,
+    "name": "未濟",
+    "full_name": "火水未濟",
+    "binary": "010101",
+    "trigrams": { "upper": "離", "lower": "坎" },
+    "five_elements": "火",
+    "judgment": "未濟，亨，小狐汔濟，濡其尾，無攸利。",
+    "judgment_modern": "陰陽失調，未竟全功。局勢尚未明朗，如小狐狸過河弄濕尾巴，需謹慎籌謀未來。",
+    "lines": [
+      { "position": 1, "name": "初六", "is_yang": false, "text": "濡其尾，吝。", "modern": "小狐狸還沒過河就弄濕了尾巴。力量不足卻急於求成，徒勞無功且帶來遺憾。" },
+      { "position": 2, "name": "九二", "is_yang": true, "text": "曳其輪，貞吉。", "modern": "向後拉住車輪不讓它盲目前進。審時度勢，堅守正道，吉利。" },
+      { "position": 3, "name": "六三", "is_yang": false, "text": "未濟，征凶，利涉大川。", "modern": "尚未成功時若輕舉妄動必凶。但若是做好了準備去克服大難（涉大川），則有利益。" },
+      { "position": 4, "name": "九四", "is_yang": true, "text": "貞吉，悔亡，震用伐鬼方，三年有賞于大國。", "modern": "堅守正道則悔恨消失。如雷霆般出擊討伐鬼方，歷經三年苦戰終獲大國賞賜。先苦後甘。" },
+      { "position": 5, "name": "六五", "is_yang": false, "text": "貞吉，無悔，君子之光，有孚，吉。", "modern": "堅守正道，沒有後悔。君子德性煥發光芒，以誠信相待，大吉。象徵光明即將到來。" },
+      { "position": 6, "name": "上九", "is_yang": true, "text": "有孚于飲酒，無咎，濡其首，有孚失是。", "modern": "在等待成功時安心飲酒作樂，本無過錯。但若沉溺其中喝得爛醉（濡首），便會喪失信用與正道。" }
+    ]
+  },
+]
+
+
