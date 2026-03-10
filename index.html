@@ -134,7 +134,7 @@
     // 啟動時自動讀取外部 JSON (加上 ./ 確保在 GitHub Pages 抓取當前目錄)
     window.onload = async function() {
       try {
-        const response = await fetch('./iching_data.json');
+        const response = await fetch('./iching_data.json?v=1');
         if (!response.ok) throw new Error('伺服器回應錯誤');
         const dbData = await response.json();
         _0xApp = new _0xKNA(dbData);
