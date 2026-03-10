@@ -5,10 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="宙星 / Cosmostar">
-  <meta name="description" content="堪輿姓名學排盤系統 - 由 宙星 / Cosmostar 開發。結合三才五格與易經六十四卦，提供專業的磁場對應關係解析。">
-  <meta name="keywords" content="姓名學, 易經, 堪輿, 宙星, Cosmostar, 排盤系統, 算命">
+  <meta name="description" content="靈數象限 / 姓名脈絡核心解析系統 - 由 宙星 / Cosmostar 開發。結合三才五格與易經六十四卦，提供專業的磁場對應關係解析。">
+  <meta name="keywords" content="靈數象限, 姓名脈絡, 易經, 堪輿, 宙星, Cosmostar, 排盤系統, 算命">
   
-  <title>堪輿姓名學排盤系統 - 宙星 / Cosmostar</title>
+  <title>靈數象限 / 姓名脈絡核心解析系統 - 宙星 / Cosmostar</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYRZVWZQBF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CYRZVWZQBF');
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   
   <style>
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; color: #333; line-height: 1.6; padding: 20px; max-width: 900px; margin: auto; }
@@ -24,20 +35,24 @@
     button.primary:disabled { background-color: #bdc3c7; cursor: not-allowed; }
     button.success { background-color: #2ecc71; color: white; display: none; }
     button.success:hover { background-color: #27ae60; }
+    button.success:disabled { background-color: #a5dfb8; cursor: wait; }
     .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
     .box { background: #e8f4f8; padding: 15px; border-radius: 6px; border-left: 4px solid #3498db; }
     .alert { color: #d35400; font-weight: bold; }
     .box.moving-line { grid-column: 1 / -1; border-left: 5px solid #e74c3c; background: #fff3f3; }
     .moving-line-title { color: #c0392b; font-size: 1.1em; margin-bottom: 8px; display: block; }
     
+    /* 匯出圖檔的專屬美化區域 */
+    #exportWrapper { background-color: #f4f4f9; padding: 10px; border-radius: 8px; }
+    
     /* 免責聲明樣式 */
-    .disclaimer { font-size: 0.85em; color: #7f8c8d; text-align: center; margin-top: 30px; padding-top: 15px; border-top: 1px dashed #bdc3c7; }
+    .disclaimer { font-size: 0.85em; color: #7f8c8d; text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px dashed #bdc3c7; }
     #sysStatus { font-size: 0.9em; color: #e67e22; margin-left: 10px; }
   </style>
 </head>
 <body>
 
-  <h2>堪輿姓名學排盤系統</h2>
+  <h2>靈數象限 / 姓名脈絡核心解析系統</h2>
 
   <div class="card">
     <div class="form-group">
@@ -47,25 +62,28 @@
     <div class="btn-group">
       <button class="primary" id="runBtn" onclick="runAnalysis()" disabled>系統載入中...</button>
       <span id="sysStatus">正在讀取外部資料庫...</span>
-      <button class="success" id="saveBtn" onclick="saveResult()">儲存結果 (JSON)</button>
+      <button class="success" id="saveBtn" onclick="saveResultAsImage()">📥 儲存結果 (圖檔)</button>
     </div>
   </div>
 
-  <div id="outputArea" style="display: none;">
-    <div class="card"><h3>一、三才五格分析</h3><div class="grid-container" id="gridOutput"></div></div>
-    <div class="card"><h3>二、五行生剋吉凶</h3><div id="sancaiOutput"></div></div>
-    <div class="card"><h3>三、易經卦象推演</h3><div class="grid-container" id="hexagramOutput"></div></div>
-  </div>
-
-  <div class="disclaimer">
-    免責聲明：本系統解析為學術參考之磁場對應關係，僅供參考。開發者：宙星 / Cosmostar。
+  <div id="exportWrapper" style="display: none;">
+    <div id="outputArea">
+      <div class="card"><h3>一、三才五格分析</h3><div class="grid-container" id="gridOutput"></div></div>
+      <div class="card"><h3>二、五行生剋吉凶</h3><div id="sancaiOutput"></div></div>
+      <div class="card"><h3>三、易經卦象推演</h3><div class="grid-container" id="hexagramOutput"></div></div>
+      
+      <div class="disclaimer">
+        免責聲明：本系統解析為學術參考之磁場對應關係，僅供參考。<br>
+        © 宙星 / Cosmostar 開發
+      </div>
+    </div>
   </div>
 
   <script>
     // 鎖定右鍵防護
     document.addEventListener('contextmenu', _0x1 => _0x1.preventDefault()); 
 
-    // 核心邏輯混淆區塊
+    // 核心邏輯混淆
     const _0xM = {1:'木',2:'木',3:'火',4:'火',5:'土',6:'土',7:'金',8:'金',9:'水',0:'水'};
     const _0xS = {'木':'火','火':'土','土':'金','金':'水','水':'木'};
     const _0xK = {'木':'土','土':'水','水':'火','火':'金','金':'木'};
@@ -113,34 +131,28 @@
     let _0xApp = null;
     let _0xRep = null;
 
-    // 啟動時自動讀取外部 JSON
+    // 啟動時自動讀取外部 JSON (加上 ./ 確保在 GitHub Pages 抓取當前目錄)
     window.onload = async function() {
       try {
-        const response = await fetch('iching_data.json');
+        const response = await fetch('./iching_data.json');
         if (!response.ok) throw new Error('伺服器回應錯誤');
-        
         const dbData = await response.json();
         _0xApp = new _0xKNA(dbData);
         
-        // 解除按鈕鎖定並更新狀態
         const runBtn = document.getElementById('runBtn');
         runBtn.disabled = false;
         runBtn.innerText = '開始排盤';
         document.getElementById('sysStatus').innerText = '資料庫掛載完成';
         document.getElementById('sysStatus').style.color = '#27ae60';
-        
       } catch (error) {
         console.error('讀取 JSON 失敗:', error);
-        document.getElementById('sysStatus').innerText = '資料庫讀取失敗！請確認是否使用 Local Server 開啟，且 iching_data.json 檔案存在。';
+        document.getElementById('sysStatus').innerText = '資料庫讀取失敗！請確認檔案路徑與大小寫。';
         document.getElementById('sysStatus').style.color = '#e74c3c';
       }
     };
 
     function runAnalysis() {
-      if (!_0xApp) {
-        alert("資料庫尚未載入，請確認伺服器環境。");
-        return;
-      }
+      if (!_0xApp) { alert("資料庫尚未載入，請確認伺服器環境。"); return; }
       const _0xI = document.getElementById('strokeInput').value;
       const _0xS = _0xI.split(',').map(s => parseInt(s.trim())).filter(n => !isNaN(n));
       if (_0xS.length < 2 || _0xS.length > 4) { alert("請輸入有效的筆畫格式，例如：16,3,8"); return; }
@@ -148,8 +160,17 @@
       try {
         _0xRep = _0xApp._az(_0xS);
         _0xRnd(_0xRep);
-        document.getElementById('outputArea').style.display = 'block';
+        
+        document.getElementById('exportWrapper').style.display = 'block';
         document.getElementById('saveBtn').style.display = 'inline-block';
+
+        // 觸發 GA4 事件：成功計算排盤
+        gtag('event', 'calculate_hexagram', {
+          'event_category': 'Engagement',
+          'event_label': '執行排盤',
+          'value': _0xS.join(',')
+        });
+
       } catch (e) {
         alert("排盤發生錯誤，請確認輸入數值或 JSON 結構。");
       }
@@ -183,12 +204,39 @@
       `;
     }
 
-    function saveResult() {
-      if (!_0xRep) return;
-      const b = new Blob([JSON.stringify(_0xRep, null, 2)], { type: "application/json" });
-      const u = URL.createObjectURL(b);
-      const a = document.createElement('a'); a.href = u; a.download = `姓名排盤結果_${Date.now()}.json`;
-      document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(u);
+    function saveResultAsImage() {
+      const saveBtn = document.getElementById('saveBtn');
+      const originalText = saveBtn.innerHTML;
+      
+      saveBtn.innerHTML = '⏳ 圖片生成中...';
+      saveBtn.disabled = true;
+
+      // 觸發 GA4 事件：儲存圖檔
+      gtag('event', 'download_image', {
+        'event_category': 'Engagement',
+        'event_label': '儲存結果圖檔'
+      });
+
+      const elementToCapture = document.getElementById('exportWrapper');
+
+      html2canvas(elementToCapture, {
+        scale: 2, 
+        backgroundColor: '#f4f4f9', 
+        useCORS: true 
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `靈數象限排盤結果_${new Date().getTime()}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        
+        saveBtn.innerHTML = originalText;
+        saveBtn.disabled = false;
+      }).catch(err => {
+        console.error("圖片生成失敗:", err);
+        alert("圖片生成失敗，請稍後再試。");
+        saveBtn.innerHTML = originalText;
+        saveBtn.disabled = false;
+      });
     }
   </script>
 </body>
