@@ -9,10 +9,8 @@
   </script>
 
   <meta name="author" content="宙星 / Cosmostar">
-  <meta name="description" content="靈數象限 / 姓名脈絡核心解析系統 - 由 宙星 / Cosmostar 開發。結合三才五格與易經六十四卦，提供專業的磁場對應關係解析。">
-  <meta name="keywords" content="靈數象限, 姓名脈絡, 易經, 堪輿, 宙星, Cosmostar, 排盤系統, 算命">
-  
-  <title>靈數象限 / 姓名脈絡核心解析系統 - 宙星 / Cosmostar</title>
+  <meta name="description" content="靈數象限 / 姓名脈絡核心解析系統 - 由 宙星 / Cosmostar 開發。">
+  <title>靈數象限 / 姓名脈絡核心解析系統</title>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYRZVWZQBF"></script>
   <script>
@@ -25,88 +23,116 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   
   <style>
-    /* 基礎樣式與防護 */
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; color: #333; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+    /* 基礎網頁樣式 (白底明亮，方便輸入) */
+    body { font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; background-color: #f4f4f9; color: #333; line-height: 1.6; padding: 15px; max-width: 600px; margin: auto; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
     input { -webkit-user-select: auto; user-select: auto; }
     
-    h2, h3 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px; margin-top: 30px; }
-    .card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    h2 { color: #2c3e50; text-align: center; margin-bottom: 20px; }
+    .card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); margin-bottom: 20px; }
     .form-group { margin-bottom: 15px; }
-    label { font-weight: bold; display: block; margin-bottom: 5px; }
-    input[type="text"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
+    label { font-weight: bold; display: block; margin-bottom: 8px; color: #34495e;}
+    input[type="text"] { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 16px; text-align: center; }
     
-    .btn-group { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-    button { padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 15px; font-weight: bold; transition: background 0.3s; }
-    .primary { background-color: #3498db; color: white; width: 100%; padding: 14px;}
-    .primary:hover { background-color: #2980b9; }
-    .primary:disabled { background-color: #bdc3c7; cursor: not-allowed; }
-    
-    .export-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #4CAF50 0%, #2e7d32 100%); color: #fff; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3); margin-top: 15px; }
+    .btn-group { display: flex; flex-direction: column; gap: 10px; margin-top: 15px;}
+    button { padding: 14px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; transition: background 0.3s; }
+    .primary { background-color: #3498db; color: white; }
+    .primary:disabled { background-color: #bdc3c7; }
+    .export-btn { background: linear-gradient(135deg, #4CAF50 0%, #2e7d32 100%); color: #fff; box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3); display: none;}
 
-    .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-    .box { background: #e8f4f8; padding: 15px; border-radius: 6px; border-left: 4px solid #3498db; }
+    /* 網頁版結果區塊 */
+    .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 15px;}
+    .box { background: #e8f4f8; padding: 12px; border-radius: 6px; border-left: 4px solid #3498db; font-size: 14px;}
     .alert { color: #d35400; font-weight: bold; }
-    .box.moving-line { grid-column: 1 / -1; border-left: 5px solid #e74c3c; background: #fff3f3; }
-    .moving-line-title { color: #c0392b; font-size: 1.1em; margin-bottom: 8px; display: block; }
+    .moving-line { grid-column: 1 / -1; border-left: 4px solid #e74c3c; background: #fff3f3; }
     
-    #exportWrapper { display: none; margin-top: 20px;}
-    .disclaimer { font-size: 0.85em; color: #7f8c8d; text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px dashed #bdc3c7; }
-    #sysStatus { font-size: 0.85em; color: #e67e22; width: 100%; margin-top: 5px; text-align: center;}
+    #exportWrapper { display: none; }
+    #sysStatus { font-size: 13px; color: #e67e22; text-align: center; }
 
-    /* ★★★ 專屬隱藏圖卡版型 (防截斷必備) ★★★ */
-    #shareCardHidden {
-      position: absolute; left: -9999px; top: 0; width: 420px; 
-      background-color: #f4f4f9; color: #333; padding: 30px; box-sizing: border-box; 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* ========================================================= */
+    /* ★★★ 黑金質感隱藏圖卡 (絕對定位防截斷) ★★★ */
+    /* ========================================================= */
+    #shareCardHidden { 
+      position: absolute; /* 改為 absolute 徹底解決高度被截斷的問題 */
+      left: -9999px; 
+      top: 0; 
+      width: 375px; 
+      background-color: #121212; color: #f0f0f0; padding: 35px 25px; box-sizing: border-box; 
+      font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      background-image: radial-gradient(#222 1px, transparent 1px); background-size: 30px 30px;
+      border: 2px solid #d4af37; border-radius: 0;
     }
-    #shareCardHidden .card { box-shadow: none; border: 1px solid #ddd; margin-bottom: 15px; padding: 15px;}
-    #shareCardHidden h2 { text-align: center; font-size: 24px; margin-top: 0; }
+    #shareCardHidden h1 { color: #d4af37; text-align: center; font-size: 26px; margin-top: 0; margin-bottom: 5px; letter-spacing: 2px;}
+    #shareCardHidden .sub-title { text-align: center; color: #aaa; font-size: 14px; margin-bottom: 25px; letter-spacing: 1px;}
+    
+    #shareCardHidden .dark-box { background-color: rgba(255, 255, 255, 0.03); padding: 15px; border-radius: 10px; border: 1px solid #444; margin-bottom: 18px; }
+    #shareCardHidden .box-header { color: #d4af37; font-weight: bold; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 8px; margin-bottom: 12px; font-size: 15px; text-align: center;}
+    
+    #shareCardHidden .grid-4 { display: flex; justify-content: space-between; text-align: center; font-size: 14px; margin-bottom: 15px; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;}
+    #shareCardHidden .grid-item span { display: block; color: #888; font-size: 12px; margin-bottom: 4px;}
+    #shareCardHidden .grid-item strong { color: #4CAF50; font-size: 18px;}
+    
+    #shareCardHidden .sancai-text { font-size: 14px; line-height: 1.6; color: #ccc; text-align: justify; margin-bottom: 8px;}
+    #shareCardHidden .highlight-sancai { color: #d4af37; font-weight: bold; }
+    
+    #shareCardHidden .gua-item { margin-bottom: 15px; border-left: 3px solid #1e88e5; padding-left: 12px;}
+    #shareCardHidden .gua-item.changed { border-left-color: #e74c3c; }
+    #shareCardHidden .gua-name { font-weight: bold; color: #fff; font-size: 15px; margin-bottom: 6px;}
+    #shareCardHidden .gua-desc { color: #aaa; font-size: 14px; line-height: 1.6; text-align: justify;}
+    
+    #shareCardHidden .moving-line-box { background: rgba(231, 76, 60, 0.1); border: 1px dashed rgba(231, 76, 60, 0.5); padding: 15px; border-radius: 8px; margin-top: 15px;}
+    #shareCardHidden .ml-title { color: #e74c3c; font-weight: bold; font-size: 15px; margin-bottom: 8px;}
+    #shareCardHidden .ml-text { color: #e0e0e0; font-size: 14px; line-height: 1.6; text-align: justify;}
 
-    /* ★★★ Loading 動畫 ★★★ */
-    #loadingOverlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); color: #fff; justify-content: center; align-items: center; flex-direction: column; z-index: 9999; }
-    .spinner { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 15px; }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    #shareCardHidden .footer { text-align: center; font-size: 13px; color: #d4af37; margin-top: 30px; padding-top: 15px; border-top: 1px dashed #444; }
+    #shareCardHidden .watermark { position: absolute; bottom: 12px; right: 15px; font-size: 10px; color: rgba(255, 255, 255, 0.15); letter-spacing: 1px; }
 
-    /* ★★★ 彈出視窗與新版按鈕 ★★★ */
-    #imageModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 10000; justify-content: center; align-items: center; flex-direction: column; padding: 20px; box-sizing: border-box; }
-    #resultImage { max-width: 100%; max-height: 55vh; border-radius: 8px; box-shadow: 0 0 20px rgba(52, 152, 219, 0.4); margin-bottom: 20px; -webkit-touch-callout: default !important; -webkit-user-select: auto !important; user-select: auto !important; pointer-events: auto; }
+    /* ========================================================= */
+    /* ★★★ 彈出視窗 Modal (完全對齊域見感知 C002) ★★★ */
+    /* ========================================================= */
+    #imageModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); z-index: 10000; justify-content: center; align-items: center; flex-direction: column; padding: 20px; box-sizing: border-box; }
+    #resultImage { max-width: 100%; max-height: 55vh; border-radius: 12px; box-shadow: 0 0 25px rgba(212, 175, 55, 0.4); margin-bottom: 15px; -webkit-touch-callout: default !important; -webkit-user-select: auto !important; user-select: auto !important; pointer-events: auto;}
     
     .modal-btn-group { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 340px; }
     .native-download-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #4CAF50 0%, #2e7d32 100%); color: #fff; border: none; border-radius: 25px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4); display: flex; justify-content: center; align-items: center; gap: 8px; }
     .native-share-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%); color: #fff; border: none; border-radius: 25px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(30, 136, 229, 0.4); display: flex; justify-content: center; align-items: center; gap: 8px; }
     .close-modal-btn { width: 100%; padding: 10px; background-color: transparent; color: #ccc; border: 1px solid #555; border-radius: 25px; font-size: 15px; cursor: pointer; margin-top: 5px; }
 
-    /* LINE 實體擋板 UI */
-    #lineBlocker { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #f4f4f9; z-index: 999999; justify-content: center; align-items: center; flex-direction: column; padding: 30px; box-sizing: border-box; text-align: center; }
-    .blocker-box { background: rgba(231, 76, 60, 0.1); border: 2px dashed #e74c3c; padding: 25px 20px; border-radius: 15px; max-width: 400px; width: 100%; }
+    /* Loading 動畫 */
+    #loadingOverlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); color: #d4af37; justify-content: center; align-items: center; flex-direction: column; z-index: 9999; }
+    .spinner { border: 4px solid #333; border-top: 4px solid #d4af37; border-radius: 50%; width: 45px; height: 45px; animation: spin 1s linear infinite; margin-bottom: 15px; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    /* LINE 擋板 */
+    #lineBlocker { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #121212; z-index: 999999; justify-content: center; align-items: center; flex-direction: column; padding: 30px; box-sizing: border-box; text-align: center; }
+    .blocker-box { background: rgba(255, 68, 68, 0.1); border: 2px dashed #ff4444; padding: 25px 20px; border-radius: 15px; max-width: 400px; width: 100%; }
   </style>
 </head>
-
 <body oncontextmenu="return false;">
 
   <div id="lineBlocker">
       <div class="blocker-box">
-          <h2 style="color:#e74c3c; margin-top:0;">請使用外部瀏覽器開啟</h2>
-          <p style="color:#333; font-size:16px; line-height:1.6; text-align:left;">
-              LINE 內部限制較多，無法正常儲存圖卡。<br><br>為確保測算順暢，請您手動：<br>
+          <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#ff4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:15px;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <h2 style="color:#ff4444; margin-top:0; margin-bottom:15px; font-size:22px;">請使用外部瀏覽器開啟</h2>
+          <p style="color:#e0e0e0; font-size:15px; line-height:1.6; margin-bottom:0; text-align:left;">
+              LINE 內部無法正常儲存測算圖卡。<br>為確保您的使用體驗，請手動：<br><br>
               1. 點擊右上角 <b>[ ⋮ ]</b> 或右下角選單<br>
-              2. 選擇 <b style="color:#2980b9;">「以預設瀏覽器開啟」</b><br>
-              <br><span style="font-size:14px; color:#888; display:block; text-align:center;">( 跳轉至 Chrome 或 Safari 後即可正常使用 )</span>
+              2. 選擇 <b style="color:#d4af37;">「以預設瀏覽器開啟」</b><br><br>
+              <span style="color:#aaa; font-size:13px; display:block; text-align:center;">跳轉至 Chrome / Safari 後即可順暢使用！</span>
           </p>
       </div>
   </div>
 
   <div id="loadingOverlay">
       <div class="spinner"></div>
-      <div id="loadingText" style="font-weight:bold;">產生高畫質圖卡中...</div>
+      <div id="loadingText" style="font-weight:bold; letter-spacing:1px;">產生高畫質圖卡中...</div>
   </div>
 
   <div id="mainContainer">
-      <h2 style="text-align: center;">靈數象限<br><span style="font-size: 16px; color: #7f8c8d;">姓名脈絡核心解析系統</span></h2>
+      <h2>靈數象限<br><span style="font-size: 16px; color: #7f8c8d;">姓名脈絡核心解析系統</span></h2>
 
       <div class="card">
         <div class="form-group">
-          <label for="strokeInput" style="color: #34495e;">請輸入姓名筆畫 (請以逗號分隔，例如：16,3,8)</label>
+          <label for="strokeInput">請輸入姓名筆畫 (請以逗號分隔，例如：16,3,8)</label>
           <input type="text" id="strokeInput" placeholder="例如: 16,3,8" value="16,3,8">
         </div>
         <div class="btn-group">
@@ -116,26 +142,41 @@
       </div>
 
       <div id="exportWrapper">
-        <div id="outputArea">
-          <div class="card"><h3>一、三才五格分析</h3><div class="grid-container" id="gridOutput"></div></div>
-          <div class="card"><h3>二、五行生剋吉凶</h3><div id="sancaiOutput"></div></div>
-          <div class="card"><h3>三、易經卦象推演</h3><div class="grid-container" id="hexagramOutput"></div></div>
+        <div class="card">
+          <div class="grid-container" id="gridOutput"></div>
+          <div id="sancaiOutput"></div>
         </div>
-        <button class="export-btn" onclick="generateAndShowImage()">產生並儲存測算圖卡</button>
-        <div class="disclaimer">免責聲明：本系統解析為學術參考之磁場對應關係，僅供參考。<br>© 宙星 / Cosmostar 開發</div>
+        <div class="card">
+          <div id="hexagramOutput"></div>
+        </div>
+        <button class="export-btn" id="saveBtn" onclick="generateAndShowImage()">產生並儲存測算圖卡</button>
       </div>
   </div>
 
   <div id="shareCardHidden">
-      <h2>靈數象限<br><span style="font-size: 16px; color: #7f8c8d;">姓名脈絡核心解析</span></h2>
-      <div class="card"><h3>一、三才五格分析</h3><div class="grid-container" id="share_gridOutput"></div></div>
-      <div class="card"><h3>二、五行生剋吉凶</h3><div id="share_sancaiOutput"></div></div>
-      <div class="card"><h3>三、易經卦象推演</h3><div class="grid-container" id="share_hexagramOutput"></div></div>
-      <div class="disclaimer">※ 測算結果為學術參考之磁場對應關係，僅供參考<br>由【宙星 / Cosmostar】專業測算生成</div>
+      <h1>靈數象限</h1>
+      <div class="sub-title">姓名脈絡核心解析</div>
+      
+      <div class="dark-box">
+          <div class="box-header">一、三才五格矩陣</div>
+          <div class="grid-4" id="share_gridOutput"></div>
+          <div id="share_sancaiOutput"></div>
+      </div>
+
+      <div class="dark-box">
+          <div class="box-header">二、易經時空卦象</div>
+          <div id="share_hexagramOutput"></div>
+      </div>
+
+      <div class="footer">
+          <div style="color: #888; font-size: 11px; margin-bottom: 5px;">※ 測算結果為學術參考之磁場對應關係，僅供參考</div>
+          由【宙星 / Cosmostar】專業測算生成
+      </div>
+      <div class="watermark">© Cosmostar</div>
   </div>
 
   <div id="imageModal">
-    <img id="resultImage" alt="排盤結果圖檔" />
+    <img id="resultImage" alt="測算結果圖卡" />
     <div class="modal-btn-group">
         <button class="native-download-btn" onclick="downloadImage()">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -145,7 +186,9 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
             直接分享給好友
         </button>
-        <div style="color: #888; font-size: 12px; text-align: center; margin-top: -2px;">*(若按鈕無反應，請直接長按上方圖片儲存)*</div>
+        <div style="color: #888; font-size: 12px; text-align: center; margin-top: -2px;">
+            *(若按鈕無反應，請直接長按上方圖片儲存)*
+        </div>
         <button class="close-modal-btn" onclick="closeModal()">關閉視窗</button>
     </div>
   </div>
@@ -167,7 +210,7 @@
       }
       _gW(s) { return _0xM[s%10]; }
       _cR(sj, ob, on) {
-        if(sj===ob) return {rl:'比和', rs:'吉', d:`五行相同，與${on}關係融洽。`};
+        if(sj===ob) return {rl:'比和', rs:'平', d:`五行相同，與${on}關係融洽。`};
         if(_0xS[sj]===ob) return {rl:`${sj}生${ob}`, rs:'吉', d:`自己付出照顧${on}，得人和。`};
         if(_0xS[ob]===sj) return {rl:`${ob}生${sj}`, rs:'大吉', d:`深得${on}的提攜與助力。`};
         if(_0xK[sj]===ob) return {rl:`${sj}剋${ob}`, rs:'凶', d:`對${on}掌控欲強，易生摩擦。`};
@@ -183,7 +226,7 @@
         let bb = _0xT[ln].b + _0xT[un].b;
         let mb = bb.substring(1,4) + bb.substring(2,5);
         let cb = bb.substring(0,ml-1) + (bb[ml-1]==='1'?'0':'1') + bb.substring(ml);
-        let fb = (b) => ({full_name:'資料缺失', judgment_modern:'請檢查 JSON 檔案完整性。', lines:[]});
+        let fb = (b) => ({full_name:'資料缺失', judgment_modern:'請檢查 JSON 檔案。', lines:[]});
         let fh = (b) => this.d.find(h=>h.binary===b)||fb(b);
         let bH = fh(bb);
         let mLD = (bH.lines&&bH.lines.length>=ml) ? bH.lines[ml-1] : null;
@@ -218,7 +261,6 @@
         document.getElementById('sysStatus').innerText = '';
       } catch (error) {
         document.getElementById('sysStatus').innerText = '❌ 資料庫讀取失敗！請確認檔案。';
-        document.getElementById('sysStatus').style.color = '#e74c3c';
       }
     };
 
@@ -230,32 +272,59 @@
       
       try {
         let rep = _0xApp._az(_0xS);
-        _0xRnd(rep); // 渲染畫面與隱藏圖卡
+        _0xRnd(rep); // 渲染網頁版
+        _0xRndDark(rep); // 渲染黑金版圖卡
+        
         document.getElementById('exportWrapper').style.display = 'block';
+        document.getElementById('saveBtn').style.display = 'block';
 
         gtag('event', 'calculate_hexagram', { 'event_category': 'Engagement', 'value': _0xS.join(',') });
       } catch (e) { alert("排盤發生錯誤。"); }
     }
 
+    // 網頁版渲染 (白底藍框，供手機快速瀏覽)
     function _0xRnd(d) {
-      // 組合 HTML
-      let gridHtml = `<div class="box"><strong>天格：</strong> ${d.g.t}</div><div class="box"><strong>人格：</strong> ${d.g.r}</div><div class="box"><strong>地格：</strong> ${d.g.d}</div><div class="box"><strong>總格：</strong> ${d.g.z}</div>`;
-      let sancaiHtml = `<p><strong>整體格局：</strong> <span class="alert">${d.sC.cf}</span></p><div class="box" style="margin-bottom: 10px;"><strong>長輩運 (${d.sC.sp.rl} - ${d.sC.sp.rs})：</strong><br>${d.sC.sp.d}</div><div class="box"><strong>晚輩運 (${d.sC.sb.rl} - ${d.sC.sb.rs})：</strong><br>${d.sC.sb.d}</div>`;
-      let mH = d.hx.mLD ? `<div class="box moving-line"><strong class="moving-line-title">📌 關鍵動爻 (${d.hx.bH.name}卦 第 ${d.hx.ml} 爻 - ${d.hx.mLD.name})：</strong><strong>【原文】</strong> ${d.hx.mLD.text}<br><strong>【白話】</strong> <span style="color: #333;">${d.hx.mLD.modern}</span></div>` : '';
-      let hexagramHtml = `<div class="box"><strong>本卦 (早年)：</strong> ${d.hx.bH.full_name}<br><small>${d.hx.bH.judgment_modern}</small></div><div class="box"><strong>互卦 (中年)：</strong> ${d.hx.mH.full_name}<br><small>${d.hx.mH.judgment_modern}</small></div><div class="box"><strong>變卦 (晚年)：</strong> ${d.hx.cH.full_name}<br><small>${d.hx.cH.judgment_modern}</small></div>${mH}`;
-
-      // 同時塞入可見的 UI 區塊與隱藏的圖卡區塊
-      document.getElementById('gridOutput').innerHTML = gridHtml;
-      document.getElementById('share_gridOutput').innerHTML = gridHtml;
-      
-      document.getElementById('sancaiOutput').innerHTML = sancaiHtml;
-      document.getElementById('share_sancaiOutput').innerHTML = sancaiHtml;
-      
-      document.getElementById('hexagramOutput').innerHTML = hexagramHtml;
-      document.getElementById('share_hexagramOutput').innerHTML = hexagramHtml;
+      document.getElementById('gridOutput').innerHTML = `<div class="box"><strong>天格：</strong> ${d.g.t}</div><div class="box"><strong>人格：</strong> ${d.g.r}</div><div class="box"><strong>地格：</strong> ${d.g.d}</div><div class="box"><strong>總格：</strong> ${d.g.z}</div>`;
+      document.getElementById('sancaiOutput').innerHTML = `<div class="box" style="margin-top:10px;"><strong>長輩運 (${d.sC.sp.rl})：</strong>${d.sC.sp.d}</div><div class="box" style="margin-top:10px;"><strong>晚輩運 (${d.sC.sb.rl})：</strong>${d.sC.sb.d}</div>`;
+      let mH = d.hx.mLD ? `<div class="box moving-line" style="margin-top:10px;"><strong class="moving-line-title">📌 關鍵動爻 (${d.hx.ml} 爻變)</strong>${d.hx.mLD.modern}</div>` : '';
+      document.getElementById('hexagramOutput').innerHTML = `<div class="box" style="margin-bottom:10px;"><strong>本卦：</strong> ${d.hx.bH.full_name}<br><small>${d.hx.bH.judgment_modern}</small></div><div class="box" style="margin-bottom:10px;"><strong>變卦：</strong> ${d.hx.cH.full_name}<br><small>${d.hx.cH.judgment_modern}</small></div>${mH}`;
     }
 
-    // 截取隱藏區塊 (保證不截斷)
+    // 黑金版圖卡渲染 (準備給截圖引擎用)
+    function _0xRndDark(d) {
+      // 1. 三才五格矩陣
+      document.getElementById('share_gridOutput').innerHTML = `
+        <div class="grid-item"><span>天格</span><strong>${d.g.t}</strong></div>
+        <div class="grid-item"><span>人格</span><strong style="color:#d4af37;">${d.g.r}</strong></div>
+        <div class="grid-item"><span>地格</span><strong>${d.g.d}</strong></div>
+        <div class="grid-item"><span>總格</span><strong>${d.g.z}</strong></div>
+      `;
+      document.getElementById('share_sancaiOutput').innerHTML = `
+        <div class="sancai-text"><span class="highlight-sancai">整體格局：</span> 天${_0xApp._gW(d.g.t)} - 人${_0xApp._gW(d.g.r)} - 地${_0xApp._gW(d.g.d)}</div>
+        <div class="sancai-text"><span class="highlight-sancai">長輩運 (${d.sC.sp.rl})：</span> ${d.sC.sp.d}</div>
+        <div class="sancai-text"><span class="highlight-sancai">晚輩運 (${d.sC.sb.rl})：</span> ${d.sC.sb.d}</div>
+      `;
+
+      // 2. 易經時空卦象
+      let mH = d.hx.mLD ? `<div class="moving-line-box"><div class="ml-title">⚡ 關鍵轉折 (${d.hx.ml} 爻變：${d.hx.mLD.name})</div><div class="ml-text">${d.hx.mLD.modern}</div></div>` : '';
+      document.getElementById('share_hexagramOutput').innerHTML = `
+        <div class="gua-item">
+            <div class="gua-name">本卦 (早年)：${d.hx.bH.full_name}</div>
+            <div class="gua-desc">${d.hx.bH.judgment_modern}</div>
+        </div>
+        <div class="gua-item">
+            <div class="gua-name">互卦 (中年)：${d.hx.mH.full_name}</div>
+            <div class="gua-desc">${d.hx.mH.judgment_modern}</div>
+        </div>
+        <div class="gua-item changed">
+            <div class="gua-name" style="color:#e74c3c;">變卦 (晚年)：${d.hx.cH.full_name}</div>
+            <div class="gua-desc">${d.hx.cH.judgment_modern}</div>
+        </div>
+        ${mH}
+      `;
+    }
+
+    // ★★★ 終極截圖法：分身術 + Blob 轉換 (徹底解決截斷與手機當機) ★★★
     function generateAndShowImage() {
       const lo = document.getElementById('loadingOverlay');
       lo.style.display = 'flex';
@@ -263,5 +332,74 @@
 
       setTimeout(() => {
         const sc = document.getElementById('shareCardHidden');
-        html2canvas(sc, { 
-          scale:
+        
+        // 創造一個分身來截圖，擺脫捲動高度與 viewport 的限制
+        const clone = sc.cloneNode(true);
+        clone.style.position = 'absolute';
+        clone.style.left = '0';
+        clone.style.top = '0';
+        clone.style.zIndex = '-9999'; // 藏在畫面最底層
+        document.body.appendChild(clone);
+
+        html2canvas(clone, { 
+          scale: 2, 
+          backgroundColor: '#121212', 
+          useCORS: true,
+          scrollY: 0,
+          scrollX: 0
+        }).then(canvas => {
+          document.body.removeChild(clone); // 截取完畢馬上移除分身
+
+          const id = canvas.toDataURL('image/png');
+          
+          // 使用域見感知的 Blob 轉換技術，避免 Base64 過長導致 Safari 破圖
+          let a = id.split(','), m = a[0].match(/:(.*?);/)[1], b = atob(a[1]), n = b.length, u = new Uint8Array(n);
+          while(n--) { u[n] = b.charCodeAt(n); }
+          const bl = new Blob([u], { type: m });
+          
+          document.getElementById('resultImage').src = URL.createObjectURL(bl);
+          lo.style.display = 'none';
+          document.getElementById('imageModal').style.display = 'flex';
+          
+        }).catch(err => {
+          if(document.body.contains(clone)) document.body.removeChild(clone);
+          lo.style.display = 'none';
+          alert("圖卡生成失敗，請稍後再試。");
+        });
+      }, 500);
+    }
+
+    // 原生下載 (同域見感知)
+    function downloadImage() {
+      gtag('event', 'download_image', { 'event_category': 'Conversion' });
+      const s = document.getElementById('resultImage').src;
+      if (!s) return;
+      const l = document.createElement('a');
+      l.href = s;
+      l.download = `靈數象限_黑金版排盤_${new Date().getTime()}.png`;
+      document.body.appendChild(l);
+      l.click();
+      document.body.removeChild(l);
+    }
+
+    // 原生分享 (同域見感知)
+    async function shareImage() {
+      gtag('event', 'share_image', { 'event_category': 'Conversion' });
+      const s = document.getElementById('resultImage').src;
+      if (!s) return;
+      try {
+        const r = await fetch(s);
+        const b = await r.blob();
+        const f = new File([b], `靈數象限_黑金版排盤_${new Date().getTime()}.png`, { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [f] })) {
+          await navigator.share({ files: [f], title: '靈數象限測算結果' });
+        } else {
+          alert('您的裝置不支援快速分享，請點擊「下載儲存圖卡」或長按圖片。');
+        }
+      } catch (e) { console.log('Share canceled', e); }
+    }
+
+    function closeModal() { document.getElementById('imageModal').style.display = 'none'; }
+  </script>
+</body>
+</html>
