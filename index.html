@@ -12,35 +12,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>靈數象限 / 姓名脈絡核心解析系統</title>
-    
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
     <style>
+        :root { --main-color: #8b0000; --bg-soft: #fdfaf7; }
         body { font-family: "Microsoft JhengHei", sans-serif; background-color: #f7f3f0; padding: 20px; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); }
-        h2 { text-align: center; color: #8b0000; margin-bottom: 5px; }
-        .subtitle { text-align: center; font-size: 0.9em; color: #666; margin-bottom: 25px; }
-        
+        .container { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: var(--main-color); margin-bottom: 5px; }
+        .subtitle { text-align: center; font-size: 0.85em; color: #888; margin-bottom: 25px; }
         .input-group { display: flex; gap: 10px; margin-bottom: 20px; }
         input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
-        button { padding: 12px 20px; background-color: #8b0000; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        
-        /* 圖片生成區塊 */
-        #resultCard { display: none; background: white; border: 1px solid #eee; border-radius: 10px; overflow: hidden; }
-        .card-header { background: #8b0000; color: white; padding: 15px; text-align: center; font-size: 1.2em; font-weight: bold; }
-        .card-body { padding: 20px; line-height: 1.6; }
-        
-        /* 三才五格表格樣式 */
-        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; background: #fdfaf7; padding: 15px; border-radius: 8px; border: 1px solid #f0e6dc; }
-        .grid-item { font-size: 0.95em; }
-        .highlight { color: #8b0000; font-weight: bold; font-size: 1.1em; }
-        
-        .line-box { background: #fffdf2; padding: 15px; border-radius: 8px; border: 1px dashed #dcd0a0; margin: 15px 0; }
-        .footer-tag { text-align: center; font-size: 0.8em; color: #aaa; padding: 10px; }
+        button.calc-btn { padding: 12px 20px; background-color: var(--main-color); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
 
-        .action-area { display: none; flex-direction: column; align-items: center; gap: 15px; margin-top: 20px; }
-        .share-btn { padding: 12px 30px; background-color: #25d366; color: white; border: none; border-radius: 50px; cursor: pointer; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; }
+        /* 結果圖卡樣式 */
+        #resultCard { display: none; background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eee; }
+        .card-header { background: var(--main-color); color: white; padding: 15px; text-align: center; font-size: 1.1em; font-weight: bold; }
+        .card-body { padding: 20px; line-height: 1.6; }
+        .section-title { font-size: 1.1em; color: var(--main-color); font-weight: bold; border-bottom: 2px solid var(--main-color); padding-bottom: 5px; margin: 15px 0 10px; }
         
+        /* 三才五格表格 */
+        .grid-table { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; background: var(--bg-soft); padding: 15px; border-radius: 8px; border: 1px solid #f0e6dc; }
+        .grid-item { font-size: 0.9em; }
+        .val { color: var(--main-color); font-weight: bold; font-size: 1.1em; }
+        
+        .line-box { background: #fffdf2; padding: 12px; border-radius: 6px; border: 1px dashed #dcd0a0; margin: 10px 0; }
+        .card-footer { text-align: center; font-size: 0.75em; color: #bbb; padding: 10px; border-top: 1px solid #f9f9f9; }
+
+        .action-group { display: none; flex-direction: column; align-items: center; gap: 15px; margin-top: 25px; }
+        .share-line { padding: 10px 25px; background-color: #06C755; color: white; border-radius: 25px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; }
         @media print { .no-print { display: none; } }
     </style>
 </head>
@@ -49,125 +48,111 @@
 <div class="container no-print">
     <h2>靈數象限</h2>
     <div class="subtitle">姓名脈絡核心解析系統</div>
-
     <div class="input-group">
-        <input type="text" id="nameInput" placeholder="請輸入姓名 (2~4字)" maxlength="4">
-        <button onclick="calculateNaming()">解析起卦</button>
+        <input type="text" id="nameInput" placeholder="輸入姓名 (2~4字)" maxlength="4">
+        <button onclick="runAnalysis()" class="calc-btn">起卦解析</button>
     </div>
 </div>
 
 <div id="resultCard">
-    <div class="card-header">靈數象限 ‧ 脈絡解析</div>
+    <div class="card-header">靈數象限 ‧ 姓名脈絡卡</div>
     <div class="card-body">
-        <div id="nameSummary" style="font-size: 1.3em; font-weight: bold; border-bottom: 2px solid #8b0000; padding-bottom: 10px; margin-bottom: 15px;"></div>
+        <div id="userNameDisp" style="font-size: 1.25em; font-weight: bold;"></div>
         
-        <div class="grid-container">
-            <div class="grid-item">天格：<span id="tianGe" class="highlight"></span></div>
-            <div class="grid-item">人格：<span id="renGe" class="highlight"></span></div>
-            <div class="grid-item">地格：<span id="diGe" class="highlight"></span></div>
-            <div class="grid-item">外格：<span id="waiGe" class="highlight"></span></div>
-            <div class="grid-item" style="grid-column: span 2;">總格：<span id="zongGe" class="highlight"></span></div>
+        <div class="section-title">姓名學 ‧ 三才五格</div>
+        <div class="grid-table">
+            <div class="grid-item">天格：<span id="tian" class="val"></span></div>
+            <div class="grid-item">人格：<span id="ren" class="val"></span></div>
+            <div class="grid-item">地格：<span id="di" class="val"></span></div>
+            <div class="grid-item">外格：<span id="wai" class="val"></span></div>
+            <div style="grid-column: span 2;">總格：<span id="zong" class="val"></span></div>
         </div>
 
-        <div id="ichingResult"></div>
+        <div class="section-title">易經 ‧ 運勢取卦</div>
+        <div id="ichingDisp"></div>
     </div>
-    <div class="footer-tag">系統提供：羅導 ‧ 靈數象限開發組</div>
+    <div class="card-footer">羅導系統研發 ‧ 2026 脈絡核心技術</div>
 </div>
 
-<div id="finalAction" class="action-area">
-    <img id="cardPreview" style="width:100%; border:1px solid #ddd; border-radius:8px;">
-    <p style="color:#666; font-size:0.9em;">(長按圖片可儲存，或點擊下方分享)</p>
-    <button class="share-btn" onclick="shareToLine()">分享至 LINE</button>
-    <a id="downloadBtn" style="color:#8b0000; font-size:0.9em; text-decoration:none;" href="#" download="我的命理分析.png">下載原始圖檔</a>
+<div id="finalActions" class="action-group">
+    <img id="previewImg" style="width:100%; border:1px solid #ddd; border-radius:10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <p style="color:#888; font-size:0.85em;">(長按上方圖片儲存卡片)</p>
+    <a href="javascript:void(0)" onclick="shareLine()" class="share-line">分享至 LINE</a>
+    <a id="dlLink" style="color:var(--main-color); font-size:0.85em; text-decoration:none;" href="#" download="靈數象限分析卡.png">下載原始檔案</a>
 </div>
 
 <script>
-    // LINE 脫出邏輯
-    (function(){if(/Line/i.test(navigator.userAgent)){if(/Android/i.test(navigator.userAgent)){window.location.href=`intent://${window.location.href.replace(/^https?:\/\//,'')}#Intent;scheme=https;package=com.android.chrome;end`;}else if(/iPhone|iPad|iPod/i.test(navigator.userAgent)){const o=document.createElement('div');o.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);color:white;z-index:9999;display:flex;justify-content:center;align-items:center;padding:30px;text-align:center;';o.innerHTML='<div>請點擊右上角 <span style="color:#ff4d4f;font-size:1.5em;">...</span><br>選擇「在預設瀏覽器中開啟」<br>以使用分享與下載功能</div>';document.body.appendChild(o);}}})();
+    // 脫出 LINE 環境邏輯
+    (function(){if(/Line/i.test(navigator.userAgent)){const u=window.location.href;if(/Android/i.test(navigator.userAgent)){window.location.href=`intent://${u.replace(/^https?:\/\//,'')}#Intent;scheme=https;package=com.android.chrome;end`;}else{const d=document.createElement('div');d.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);color:white;z-index:9999;display:flex;justify-content:center;align-items:center;padding:40px;text-align:center;font-size:1.1em;';d.innerHTML='請點擊右上角「...」選單<br>選擇「在預設瀏覽器中開啟」<br>以使用卡片儲存與分享功能';document.body.appendChild(d);}}})();
 
-    let kDict = {}, iData = [];
-
-    async function init() {
+    let dict = {}, iching = [];
+    async function loadData() {
         try {
             const [k, i] = await Promise.all([fetch('kangxi_dictionary.json'), fetch('iching_data.json')]);
-            kDict = await k.json(); iData = await i.json();
-        } catch(e) { console.error("資料載入異常"); }
+            dict = await k.json(); iching = await i.json();
+        } catch(e) { console.error("Data Load Error"); }
     }
-    init();
+    loadData();
 
-    function calculateNaming() {
+    function runAnalysis() {
         const name = document.getElementById('nameInput').value.trim();
-        if (name.length < 2 || name.length > 4) return alert("請輸入2~4字");
+        if (name.length < 2 || name.length > 4) return alert("請輸入2~4字姓名");
 
-        let strokes = [];
-        for (let char of name) {
-            let s = kDict[char];
-            if (!s) return alert(`字庫未收錄：${char}`);
-            strokes.push(s);
+        let s = [];
+        for (let c of name) {
+            if (!dict[c]) return alert(`尚未收錄：${c}`);
+            s.push(dict[c]);
         }
 
-        // --- 三才五格計算邏輯 (姓名學標準) ---
-        let tian, ren, di, wai, zong;
-        zong = strokes.reduce((a, b) => a + b, 0);
-
-        if (name.length === 2) { // 單姓單名 (例：李明 7,8)
-            tian = strokes[0] + 1;
-            ren = strokes[0] + strokes[1];
-            di = strokes[1] + 1;
-            wai = 2;
-        } else if (name.length === 3) { // 單姓雙名 (例：羅鴻陞 20,18,15)
-            tian = strokes[0] + 1;
-            ren = strokes[0] + strokes[1];
-            di = strokes[1] + strokes[2];
-            wai = strokes[2] + 1;
-        } else if (name.length === 4) { // 複姓雙名 (例：司馬中原 5,10,4,10)
-            tian = strokes[0] + strokes[1];
-            ren = strokes[1] + strokes[2];
-            di = strokes[2] + strokes[3];
-            wai = strokes[0] + strokes[3];
+        // --- 三才五格邏輯回歸 ---
+        let t, r, d, w, z = s.reduce((a,b)=>a+b, 0);
+        if (name.length === 2) { 
+            t = s[0]+1; r = s[0]+s[1]; d = s[1]+1; w = 2; 
+        } else if (name.length === 3) { 
+            t = s[0]+1; r = s[0]+s[1]; d = s[1]+s[2]; w = s[2]+1; 
+        } else if (name.length === 4) { 
+            t = s[0]+s[1]; r = s[1]+s[2]; d = s[2]+s[3]; w = s[0]+s[3]; 
         }
 
-        // 填入顯示
-        document.getElementById('nameSummary').innerText = `姓名：${name}`;
-        document.getElementById('tianGe').innerText = tian;
-        document.getElementById('renGe').innerText = ren;
-        document.getElementById('diGe').innerText = di;
-        document.getElementById('waiGe').innerText = wai;
-        document.getElementById('zongGe').innerText = zong;
+        document.getElementById('userNameDisp').innerText = `解析對象：${name}`;
+        document.getElementById('tian').innerText = t;
+        document.getElementById('ren').innerText = r;
+        document.getElementById('di').innerText = d;
+        document.getElementById('wai').innerText = w;
+        document.getElementById('zong').innerText = z;
 
-        // --- 易經起卦 (梅花法) ---
-        let up = (name.length === 4) ? strokes[0]+strokes[1] : strokes[0];
-        let down = zong - up;
-        const getG = (n) => ["", "乾", "兌", "離", "震", "巽", "坎", "艮", "坤"][(n % 8 === 0) ? 8 : n % 8];
-        const uN = getG(up), dN = getG(down);
-        const mov = (zong % 6 === 0) ? 6 : zong % 6;
-        const target = iData.find(g => g.trigrams.upper === uN && g.trigrams.lower === dN);
+        // --- 易經起卦 (與文字版同步) ---
+        let up = (name.length === 4) ? s[0]+s[1] : s[0];
+        let down = z - up;
+        const getG = (n) => ["", "乾", "兌", "離", "震", "巽", "坎", "艮", "坤"][(n%8==0)?8:n%8];
+        const mov = (z%6==0)?6:z%6;
+        const target = iching.find(g => g.trigrams.upper === getG(up) && g.trigrams.lower === getG(down));
 
         if (target) {
             const y = target.lines[mov-1];
-            document.getElementById('ichingResult').innerHTML = `
-                <div style="font-weight:bold; color:#8b0000; margin-top:10px;">本卦：${target.full_name} (第${mov}爻變)</div>
+            document.getElementById('ichingDisp').innerHTML = `
+                <div><strong>卦象：</strong>${target.full_name} (第 ${mov} 爻變)</div>
                 <div class="line-box"><strong>爻辭：</strong>${y.text}<br><small>${y.modern}</small></div>
-                <div style="font-size:0.9em;"><strong>解析：</strong>${target.judgment_modern}</div>
+                <div style="font-size:0.85em;"><strong>斷語：</strong>${target.judgment_modern}</div>
             `;
         }
 
-        // 生成圖片
+        // 生成圖卡
         const card = document.getElementById('resultCard');
         card.style.display = 'block';
         html2canvas(card, { scale: 2 }).then(canvas => {
             const img = canvas.toDataURL("image/png");
-            document.getElementById('cardPreview').src = img;
-            document.getElementById('downloadBtn').href = img;
+            document.getElementById('previewImg').src = img;
+            document.getElementById('dlLink').href = img;
             card.style.display = 'none';
-            document.getElementById('finalAction').style.display = 'flex';
-            gtag('event', 'generate_result', { 'name': name });
+            document.getElementById('finalActions').style.display = 'flex';
+            gtag('event', 'divine_complete', { 'name_len': name.length });
         });
     }
 
-    function shareToLine() {
-        const url = window.location.href;
-        window.location.href = `https://line.me/R/msg/text/?我剛在「靈數象限」完成姓名解析，快來看看你的脈絡核心！%0D%0A${encodeURIComponent(url)}`;
+    function shareLine() {
+        const u = window.location.href;
+        window.location.href = `https://line.me/R/msg/text/?【靈數象限】姓名脈絡解析已完成，快來獲取你的易經卦卡！%0D%0A${encodeURIComponent(u)}`;
     }
 </script>
 </body>
