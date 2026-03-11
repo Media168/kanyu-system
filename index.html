@@ -10,17 +10,17 @@
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>靈數象限 / 姓名脈絡核心解析系統</title>
     
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
     <style>
         :root { --primary: #8b0000; --bg: #f5f5f7; --card-bg: #ffffff; --text: #333333; }
-        body { font-family: "Microsoft JhengHei", sans-serif; background-color: var(--bg); padding: 15px; color: var(--text); line-height: 1.6; }
+        body { font-family: 'PingFang TC', "Microsoft JhengHei", sans-serif; background-color: var(--bg); padding: 15px; color: var(--text); line-height: 1.6; margin: 0; }
         .container { max-width: 650px; margin: 0 auto; }
         
-        .header-title { text-align: center; color: var(--primary); font-size: 1.8em; font-weight: bold; margin-bottom: 5px; }
+        .header-title { text-align: center; color: var(--primary); font-size: 1.8em; font-weight: bold; margin-bottom: 5px; margin-top: 10px; }
         .header-sub { text-align: center; color: #666; font-size: 0.9em; margin-bottom: 20px; }
 
         .input-section { background: var(--card-bg); padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px; }
@@ -29,7 +29,8 @@
         .btn-calc { padding: 12px 25px; background-color: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.2s; }
         .btn-calc:hover { opacity: 0.9; }
 
-        #captureArea { display: none; background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border: 1px solid #eaeaea; }
+        /* 圖卡輸出區塊 (擷取範圍) */
+        #captureArea { display: none; background: var(--card-bg); border-radius: 0px; box-shadow: none; border: 1px solid #eaeaea; margin: 0 auto; }
         .card-head { background: var(--primary); color: white; padding: 15px 20px; text-align: center; font-size: 1.2em; font-weight: bold; letter-spacing: 2px; }
         .card-body { padding: 25px; }
         
@@ -61,25 +62,66 @@
         
         .card-foot { text-align: center; padding: 12px; font-size: 0.8em; color: #999; border-top: 1px solid #f0f0f0; background: #fafafa; }
 
-        /* 更新後的動作按鈕區 */
-        .action-area { display: none; flex-direction: column; align-items: center; gap: 15px; margin-top: 25px; }
-        .btn-container { display: flex; gap: 10px; width: 100%; max-width: 400px; }
-        .btn-action { flex: 1; padding: 12px; border: none; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; text-align: center; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; gap: 6px; transition: 0.2s; }
-        .btn-save { background-color: #3b82f6; color: white; }
-        .btn-share { background-color: #10b981; color: white; }
-        .btn-action:active { transform: translateY(2px); }
-
-        @media print { .no-print { display: none; } }
+        /* ======== 域見感知 UI 組件移植 ======== */
+        
+        /* 1. LINE 專用擋板 */
+        #lineBlocker { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #f5f5f7; z-index: 999999; justify-content: center; align-items: center; flex-direction: column; padding: 30px; box-sizing: border-box; text-align: center; }
+        .blocker-box { background: white; border: 2px dashed var(--primary); padding: 25px 20px; border-radius: 15px; max-width: 400px; width: 100%; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        
+        /* 2. 讀取動畫遮罩 */
+        #loadingOverlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); color: #fff; justify-content: center; align-items: center; flex-direction: column; z-index: 9999; }
+        .spinner { border: 4px solid rgba(255,255,255,0.3); border-top: 4px solid #fff; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 15px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        /* 3. 結果圖卡彈出視窗 (Modal) */
+        #imageModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); z-index: 10000; justify-content: center; align-items: center; flex-direction: column; padding: 20px; box-sizing: border-box; }
+        #imageModal img { max-width: 100%; max-height: 55vh; border-radius: 12px; box-shadow: 0 0 25px rgba(139, 0, 0, 0.4); margin-bottom: 15px; -webkit-touch-callout: default !important; -webkit-user-select: auto !important; user-select: auto !important; background: white; }
+        .modal-btn-group { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 340px; }
+        
+        .native-download-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #4CAF50 0%, #2e7d32 100%); color: #fff; border: none; border-radius: 25px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4); display: flex; justify-content: center; align-items: center; gap: 8px; }
+        .native-share-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%); color: #fff; border: none; border-radius: 25px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(30, 136, 229, 0.4); display: flex; justify-content: center; align-items: center; gap: 8px; }
+        .close-modal-btn { width: 100%; padding: 10px; background-color: transparent; color: #ccc; border: 1px solid #555; border-radius: 25px; font-size: 15px; cursor: pointer; margin-top: 5px; }
     </style>
 </head>
 <body>
 
-<script>
-    // LINE 脫出強制使用瀏覽器開啟
-    (function(){if(/Line/i.test(navigator.userAgent)){if(/Android/i.test(navigator.userAgent)){window.location.href=`intent://${window.location.href.replace(/^https?:\/\//,'')}#Intent;scheme=https;package=com.android.chrome;end`;}else{const d=document.createElement('div');d.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);color:white;z-index:9999;display:flex;justify-content:center;align-items:center;padding:30px;text-align:center;font-size:1.1em;';d.innerHTML='為了正常產生與保存圖卡<br><br>請點擊右上角 <span style="color:#ff4d4f;font-weight:bold;font-size:1.2em;">...</span> 選單<br>選擇「在預設瀏覽器中開啟」';document.body.appendChild(d);}}})();
-</script>
+<div id="lineBlocker">
+    <div class="blocker-box">
+        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#8b0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:15px;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        <h2 style="color:#8b0000; margin-top:0; margin-bottom:15px; font-size:22px;">請使用外部瀏覽器開啟</h2>
+        <p style="color:#333; font-size:15px; line-height:1.6; margin-bottom:0; text-align:left;">
+            LINE 內部無法正常儲存測算圖卡。<br>為確保您的使用體驗，請手動：<br><br>
+            1. 點擊右上角 <b>[ ⋮ ]</b> 或右下角選單<br>
+            2. 選擇 <b style="color:#8b0000;">「以預設瀏覽器開啟」</b><br><br>
+            <span style="color:#666; font-size:13px; display:block; text-align:center;">跳轉至 Chrome / Safari 後即可順暢使用！</span>
+        </p>
+    </div>
+</div>
 
-<div class="container no-print">
+<div id="loadingOverlay">
+    <div class="spinner"></div>
+    <div id="loadingText">康熙數理演算中...</div>
+</div>
+
+<div id="imageModal">
+    <img id="generatedImage" src="" alt="測算結果圖卡">
+    <div class="modal-btn-group">
+        <button class="native-download-btn" onclick="downloadImageCard()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            下載儲存圖卡
+        </button>
+        <button class="native-share-btn" onclick="shareImageCard()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            直接分享給好友
+        </button>
+        <div style="color: #888; font-size: 12px; text-align: center; margin-top: -2px;">
+            *(若按鈕無反應，請直接長按上方圖片儲存)*
+        </div>
+        <button class="close-modal-btn" onclick="closeImageModal()">關閉視窗</button>
+    </div>
+</div>
+
+<div class="container" id="mainContainer">
     <div class="header-title">靈數象限</div>
     <div class="header-sub">姓名脈絡核心解析系統</div>
 
@@ -91,8 +133,8 @@
     </div>
 </div>
 
-<div class="container" style="padding: 0;">
-    <div id="captureArea">
+<div style="position: absolute; left: -9999px; top: 0;">
+    <div id="captureArea" style="width: 500px;">
         <div class="card-head">靈數象限 ‧ 全息排盤圖卡</div>
         <div class="card-body">
             <div id="outName" class="name-display"></div>
@@ -117,26 +159,20 @@
         </div>
         <div class="card-foot">系統研發：Cosmostar ‧ 靈數象限數據中心</div>
     </div>
-
-    <div id="actionArea" class="action-area no-print">
-        <img id="previewImage" style="width:100%; border-radius:12px; box-shadow: 0 5px 20px rgba(0,0,0,0.15);">
-        <div style="color:#666; font-size:0.85em; margin-bottom: 5px;">👆 系統已為您生成專屬解析圖卡</div>
-        
-        <div class="btn-container">
-            <a id="saveBtn" class="btn-action btn-save" href="#" download="靈數象限_排盤圖卡.png">
-                💾 儲存至手機
-            </a>
-            <button class="btn-action btn-share" onclick="nativeShare()">
-                🔗 分享圖卡
-            </button>
-        </div>
-    </div>
 </div>
 
 <script>
-    let kangxi = {}, ichingDict = [];
-    let currentImageBlob = null; // 存放圖片 Blob 以供分享
+    // --- 攔截 LINE 開啟 ---
+    window.addEventListener('DOMContentLoaded', (e) => {
+        var ua = navigator.userAgent || navigator.vendor || window.opera;
+        if (ua.indexOf("Line") > -1) {
+            document.getElementById('lineBlocker').style.display = 'flex';
+            document.getElementById('mainContainer').style.display = 'none';
+        }
+    });
 
+    // --- 核心資料載入 ---
+    let kangxi = {}, ichingDict = [];
     async function loadCoreData() {
         try {
             const [kRes, iRes] = await Promise.all([fetch('kangxi_dictionary.json'), fetch('iching_data.json')]);
@@ -145,6 +181,7 @@
     }
     loadCoreData();
 
+    // --- 五行與生剋邏輯 ---
     function getWuxing(num) {
         const tail = num % 10;
         if (tail === 1 || tail === 2) return { name: '木', cls: 'wx-wood' };
@@ -165,6 +202,7 @@
         return relations[a][b];
     }
 
+    // --- 核心處理程序 ---
     function processCore() {
         const name = document.getElementById('nameInput').value.trim();
         if (name.length < 2 || name.length > 4) return alert("請輸入 2 到 4 字的姓名");
@@ -230,51 +268,92 @@
             `;
         }
 
-        const captureNode = document.getElementById('captureArea');
-        captureNode.style.display = 'block';
-        
-        setTimeout(() => {
-            html2canvas(captureNode, { scale: 2, useCORS: true }).then(canvas => {
-                const imgData = canvas.toDataURL("image/png");
-                document.getElementById('previewImage').src = imgData;
-                
-                // 設定下載連結
-                document.getElementById('saveBtn').href = imgData;
-                
-                // 轉換為 Blob 以供 Web Share API 使用
-                canvas.toBlob(blob => { currentImageBlob = blob; }, "image/png");
-
-                captureNode.style.display = 'none';
-                document.getElementById('actionArea').style.display = 'flex';
-                gtag('event', 'create_divination_card', { 'name_length': name.length });
-            });
-        }, 300);
+        generateFinalImage();
     }
 
-    // 呼叫原生分享選單 (可傳送至 LINE, IG, FB, Messenger 等)
-    async function nativeShare() {
-        if (!currentImageBlob) return alert("圖卡尚未準備好，請稍候。");
+    // --- 圖卡生成與互動 ---
+    function generateFinalImage() {
+        const lo = document.getElementById('loadingOverlay');
+        const sc = document.getElementById('captureArea');
+        const modal = document.getElementById('imageModal');
+        const genImg = document.getElementById('generatedImage');
         
-        const file = new File([currentImageBlob], "靈數象限_圖卡.png", { type: "image/png" });
-        const shareData = {
-            title: '靈數象限 ‧ 脈絡解析',
-            text: '我剛在【靈數象限】完成了姓名解析，來看看我的排盤結果！\n👉 點此測算：' + window.location.href,
-            files: [file]
-        };
+        lo.style.display = 'flex';
+        document.getElementById('loadingText').innerText = "產生高畫質圖卡中...";
+        sc.style.display = 'block';
 
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-            try {
-                await navigator.share(shareData);
-                gtag('event', 'share_card_native', { method: 'Web_Share_API' });
-            } catch (err) {
-                console.log("分享已取消或發生錯誤:", err);
+        setTimeout(() => {
+            html2canvas(sc, { scale: 2, backgroundColor: '#ffffff', useCORS: true }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                
+                // 行動裝置 Blob 轉換處理 (同域見感知防呆邏輯)
+                if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    // 電腦版直接下載
+                    const l = document.createElement('a');
+                    l.href = imgData;
+                    l.download = `靈數象限_排盤圖卡_${new Date().getTime()}.png`;
+                    document.body.appendChild(l);
+                    l.click();
+                    document.body.removeChild(l);
+                    lo.style.display = 'none';
+                    sc.style.display = 'none';
+                    return;
+                }
+                
+                let a = imgData.split(','), m = a[0].match(/:(.*?);/)[1], b = atob(a[1]), n = b.length, u = new Uint8Array(n);
+                while(n--){ u[n] = b.charCodeAt(n); }
+                const bl = new Blob([u], {type: m});
+                
+                genImg.src = URL.createObjectURL(bl);
+                lo.style.display = 'none';
+                sc.style.display = 'none';
+                modal.style.display = 'flex'; // 顯示 Modal
+                
+                if(typeof gtag==='function') gtag('event', 'create_divination_card', { 'event_category': 'Engagement' });
+            }).catch(e => {
+                console.error(e);
+                lo.style.display = 'none';
+                sc.style.display = 'none';
+            });
+        }, 500);
+    }
+
+    function downloadImageCard() {
+        if(typeof gtag==='function') gtag('event','download_image',{'event_category':'Conversion'});
+        const s = document.getElementById('generatedImage').src;
+        if(!s) return;
+        const l = document.createElement('a');
+        l.href = s;
+        l.download = `靈數象限_排盤圖卡_${new Date().getTime()}.png`;
+        document.body.appendChild(l);
+        l.click();
+        document.body.removeChild(l);
+    }
+
+    async function shareImageCard() {
+        if(typeof gtag==='function') gtag('event','share_image',{'event_category':'Conversion'});
+        const s = document.getElementById('generatedImage').src;
+        if(!s) return;
+        try {
+            const r = await fetch(s);
+            const b = await r.blob();
+            const f = new File([b], `靈數象限_排盤圖卡_${new Date().getTime()}.png`, {type:'image/png'});
+            if(navigator.canShare && navigator.canShare({files:[f]})){
+                await navigator.share({
+                    files: [f],
+                    title: '靈數象限 ‧ 脈絡解析',
+                    text: '我剛在【靈數象限】完成了姓名解析，來看看我的排盤結果！\n👉 點此測算：' + window.location.href
+                });
+            } else {
+                alert('不支援快速分享，請直接使用「下載儲存圖卡」按鈕。');
             }
-        } else {
-            // 備案：如果瀏覽器不支援分享圖片，提供複製連結與純文字分享
-            const fallbackText = `我剛在【靈數象限】完成了姓名解析！\n👉 點擊連結立即測算：\n${window.location.href}`;
-            window.location.href = `https://line.me/R/msg/text/?${encodeURIComponent(fallbackText)}`;
-        }
+        } catch(e) { console.log('Cancel', e); }
+    }
+
+    function closeImageModal() {
+        document.getElementById('imageModal').style.display = 'none';
     }
 </script>
+
 </body>
 </html>
