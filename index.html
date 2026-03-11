@@ -55,25 +55,32 @@
         .wx-row { margin-bottom: 5px; }
         .wx-row strong { color: #2c3e50; }
 
+        /* 易經推演區塊優化 */
         .iching-box { border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; margin-top: 10px; }
-        .iching-title { background: #f9f9f9; padding: 12px 15px; font-weight: bold; font-size: 1.1em; color: var(--primary); border-bottom: 1px solid #e0e0e0; }
+        .iching-title { background: #f9f9f9; padding: 12px 15px; font-weight: bold; color: var(--primary); border-bottom: 1px solid #e0e0e0; line-height: 1.5; }
         .iching-content { padding: 15px; font-size: 0.95em; }
         .yao-box { background: #fffdf2; padding: 12px; border-radius: 6px; border: 1px dashed #dcd0a0; margin-top: 10px; }
         
         .card-foot { text-align: center; padding: 12px; font-size: 0.8em; color: #999; border-top: 1px solid #f0f0f0; background: #fafafa; }
 
-        /* ======== 域見感知 UI 組件移植 ======== */
-        
-        /* 1. LINE 專用擋板 */
+        /* 動作按鈕區 */
+        .action-area { display: none; flex-direction: column; align-items: center; gap: 15px; margin-top: 25px; }
+        .btn-container { display: flex; gap: 10px; width: 100%; max-width: 400px; }
+        .btn-action { flex: 1; padding: 12px; border: none; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; text-align: center; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; gap: 6px; transition: 0.2s; }
+        .btn-save { background-color: #3b82f6; color: white; }
+        .btn-share { background-color: #10b981; color: white; }
+        .btn-action:active { transform: translateY(2px); }
+
+        /* LINE 專用擋板 */
         #lineBlocker { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #f5f5f7; z-index: 999999; justify-content: center; align-items: center; flex-direction: column; padding: 30px; box-sizing: border-box; text-align: center; }
         .blocker-box { background: white; border: 2px dashed var(--primary); padding: 25px 20px; border-radius: 15px; max-width: 400px; width: 100%; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
         
-        /* 2. 讀取動畫遮罩 */
+        /* 讀取動畫遮罩 */
         #loadingOverlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); color: #fff; justify-content: center; align-items: center; flex-direction: column; z-index: 9999; }
         .spinner { border: 4px solid rgba(255,255,255,0.3); border-top: 4px solid #fff; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 15px; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
-        /* 3. 結果圖卡彈出視窗 (Modal) */
+        /* 結果圖卡彈出視窗 (Modal) */
         #imageModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); z-index: 10000; justify-content: center; align-items: center; flex-direction: column; padding: 20px; box-sizing: border-box; }
         #imageModal img { max-width: 100%; max-height: 55vh; border-radius: 12px; box-shadow: 0 0 25px rgba(139, 0, 0, 0.4); margin-bottom: 15px; -webkit-touch-callout: default !important; -webkit-user-select: auto !important; user-select: auto !important; background: white; }
         .modal-btn-group { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 340px; }
@@ -81,6 +88,7 @@
         .native-download-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #4CAF50 0%, #2e7d32 100%); color: #fff; border: none; border-radius: 25px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4); display: flex; justify-content: center; align-items: center; gap: 8px; }
         .native-share-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%); color: #fff; border: none; border-radius: 25px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(30, 136, 229, 0.4); display: flex; justify-content: center; align-items: center; gap: 8px; }
         .close-modal-btn { width: 100%; padding: 10px; background-color: transparent; color: #ccc; border: 1px solid #555; border-radius: 25px; font-size: 15px; cursor: pointer; margin-top: 5px; }
+        @media print { .no-print { display: none; } }
     </style>
 </head>
 <body>
@@ -181,7 +189,6 @@
     }
     loadCoreData();
 
-    // --- 五行與生剋邏輯 ---
     function getWuxing(num) {
         const tail = num % 10;
         if (tail === 1 || tail === 2) return { name: '木', cls: 'wx-wood' };
@@ -258,8 +265,26 @@
         
         if (targetGua) {
             const yao = targetGua.lines[movYao-1];
-            document.getElementById('ichingTitle').innerText = `本卦：${targetGua.full_name} (${targetGua.trigrams.upper}上${targetGua.trigrams.lower}下) ‧ 第 ${movYao} 爻動`;
+            const b = targetGua.binary; // 取得二進制爻象 (例："111111")
+            
+            // 互卦：取 2,3,4 爻為下卦，3,4,5 爻為上卦
+            const mutualBinary = b[1] + b[2] + b[3] + b[2] + b[3] + b[4];
+            const mutualGua = ichingDict.find(g => g.binary === mutualBinary) || targetGua;
+            
+            // 變卦：動爻陰陽互換
+            const movIndex = movYao - 1;
+            const transformedBinary = b.substring(0, movIndex) + (b[movIndex] === '1' ? '0' : '1') + b.substring(movIndex + 1);
+            const transformedGua = ichingDict.find(g => g.binary === transformedBinary) || targetGua;
+
+            // 完美重現 本卦、互卦、變卦 的標題結構
+            document.getElementById('ichingTitle').innerHTML = `
+                <div style="font-size: 1.1em; margin-bottom: 5px;">本卦：${targetGua.full_name} (${targetGua.trigrams.upper}上${targetGua.trigrams.lower}下) ‧ 第 ${movYao} 爻動</div>
+                <div style="font-size: 0.85em; color: #555; font-weight: normal;">互卦：${mutualGua.full_name} (${mutualGua.trigrams.upper}上${mutualGua.trigrams.lower}下)</div>
+                <div style="font-size: 0.85em; color: #555; font-weight: normal; margin-top: 2px;">變卦：${transformedGua.full_name} (${transformedGua.trigrams.upper}上${transformedGua.trigrams.lower}下)</div>
+            `;
+            
             document.getElementById('ichingContent').innerHTML = `
+                <div style="margin-bottom: 10px; color: var(--primary);"><strong>【關鍵】</strong> ${targetGua.judgment}</div>
                 <div style="margin-bottom: 10px;"><strong>【大象斷語】</strong> ${targetGua.judgment_modern}</div>
                 <div class="yao-box">
                     <strong>【第 ${movYao} 爻辭】</strong> ${yao.text}<br>
@@ -272,6 +297,7 @@
     }
 
     // --- 圖卡生成與互動 ---
+    let currentImageBlob = null;
     function generateFinalImage() {
         const lo = document.getElementById('loadingOverlay');
         const sc = document.getElementById('captureArea');
@@ -286,9 +312,7 @@
             html2canvas(sc, { scale: 2, backgroundColor: '#ffffff', useCORS: true }).then(canvas => {
                 const imgData = canvas.toDataURL('image/png');
                 
-                // 行動裝置 Blob 轉換處理 (同域見感知防呆邏輯)
                 if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                    // 電腦版直接下載
                     const l = document.createElement('a');
                     l.href = imgData;
                     l.download = `靈數象限_排盤圖卡_${new Date().getTime()}.png`;
@@ -305,9 +329,11 @@
                 const bl = new Blob([u], {type: m});
                 
                 genImg.src = URL.createObjectURL(bl);
+                currentImageBlob = bl;
+                
                 lo.style.display = 'none';
                 sc.style.display = 'none';
-                modal.style.display = 'flex'; // 顯示 Modal
+                modal.style.display = 'flex'; 
                 
                 if(typeof gtag==='function') gtag('event', 'create_divination_card', { 'event_category': 'Engagement' });
             }).catch(e => {
@@ -332,12 +358,9 @@
 
     async function shareImageCard() {
         if(typeof gtag==='function') gtag('event','share_image',{'event_category':'Conversion'});
-        const s = document.getElementById('generatedImage').src;
-        if(!s) return;
+        if(!currentImageBlob) return;
         try {
-            const r = await fetch(s);
-            const b = await r.blob();
-            const f = new File([b], `靈數象限_排盤圖卡_${new Date().getTime()}.png`, {type:'image/png'});
+            const f = new File([currentImageBlob], `靈數象限_排盤圖卡_${new Date().getTime()}.png`, {type:'image/png'});
             if(navigator.canShare && navigator.canShare({files:[f]})){
                 await navigator.share({
                     files: [f],
